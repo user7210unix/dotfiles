@@ -26,7 +26,6 @@ Welcome to my **i3 dotfiles** repository! This repository contains my personal c
 - Lightweight and responsive window management
 - Custom keybindings for quick navigation
 - Aesthetic design with a focus on usability
-- Integration with useful applications (e.g., terminal, file manager, etc.)
 
 
 ## Wallpapers
