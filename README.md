@@ -58,6 +58,16 @@ On Gentoo, you can install the required packages using:
 ```sudo emerge app-misc/neofetch x11-terminfo/kitty x11-wm/i3 x11-misc/picom```
 
 
+
+**OpenSUSE**
+
+For OpenSUSE distribution, use the following command:
+
+
+
+```sudo zypper install neofetch kitty picom i3```
+
+
 ## Installation
 
 To get started with my i3 configuration, follow these steps:
