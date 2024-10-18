@@ -35,13 +35,13 @@ Welcome to my **i3 dotfiles** repository! This repository contains my personal c
 
 ## Dependencies
 
-**Arch Linux**
+**Arch Linux 🔷**
 
 To install the necessary dependencies on Arch Linux, run:
 
 ```sudo pacman -S neofetch kitty picom i3```
 
-**Debian**
+**Debian ❣️ - (Ubuntu 🍊 - Mint 🍏)**
 
 For Debian-based distributions, use the following command:
 
@@ -49,7 +49,7 @@ For Debian-based distributions, use the following command:
 
 ```sudo apt install neofetch kitty picom i3```
 
-**Gentoo**
+**Gentoo 🧼**
 
 On Gentoo, you can install the required packages using:
 
@@ -59,7 +59,7 @@ On Gentoo, you can install the required packages using:
 
 
 
-**OpenSUSE**
+**OpenSUSE 🦎**
 
 For OpenSUSE distribution, use the following command:
 
