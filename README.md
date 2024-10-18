@@ -55,7 +55,7 @@ To get started with my i3 configuration, follow these steps:
 1. Clone the repository:
    ```bash
    git clone https://github.com/user7210unix/dotfiles.git
-   cd dotfiles
+   cd dotfiles/.config
    cp -r .config/i3 ~/.config/
    cp -r .config/picom ~/.config/
    cp -r .config/kitty ~/.config/
