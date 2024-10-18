@@ -1,5 +1,5 @@
 # i3 Dotfiles
-
+ 
 Welcome to my **i3 dotfiles** repository! This repository contains my personal configuration files for the i3 window manager on Linux. It’s designed to provide a clean, efficient, and visually appealing desktop environment.
 
 ## Table of Contents
