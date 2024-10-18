@@ -28,7 +28,7 @@ Welcome to my **i3 dotfiles** repository! This repository contains my personal c
 ![Wallpapers](pictures/wallpapers.png)
    
 
-**Dependencies**
+## Dependencies
 
 **Arch Linux**
 
