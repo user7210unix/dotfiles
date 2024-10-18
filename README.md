@@ -7,11 +7,12 @@ Welcome to my **i3 dotfiles** repository! This repository contains my personal c
 - [Installation](#installation)
 - [Dependencies](#Dependencies)
 - [Screenshots](#Screenshots)
-- [License](#license)
 
 ## Screenshots
 
 ![i3 Desktop](pictures/image1.png)
+
+![Neofetch](pictures/image.png)
 
 
 ## Features
