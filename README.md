@@ -5,11 +5,14 @@ Welcome to my **i3 dotfiles** repository! This repository contains my personal c
 ## Table of Contents
 - [Features](#features)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Customization](#customization)
-- [Screenshots](#screenshots)
-- [Contributing](#contributing)
+- [Dependencies](#Dependencies)
+- [Screenshots](#Screenshots)
 - [License](#license)
+
+## Screenshots
+
+![i3 Desktop](pictures/image1.png)
+
 
 ## Features
 
