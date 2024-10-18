@@ -24,6 +24,10 @@ Welcome to my **i3 dotfiles** repository! This repository contains my personal c
 - Integration with useful applications (e.g., terminal, file manager, etc.)
 
 
+## Wallpapers
+![Wallpapers](pictures/wallpapers.png)
+   
+
 **Dependencies**
 
 **Arch Linux**
@@ -62,7 +66,4 @@ To get started with my i3 configuration, follow these steps:
    cp -r .config/kitty ~/.config/
    cp -r .config/neofetch ~/.config/
 
-   
-## Wallpapers
-![Wallpapers](pictures/wallpapers.png)
-   
+  
