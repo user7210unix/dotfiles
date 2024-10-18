@@ -14,7 +14,9 @@ Welcome to my **i3 dotfiles** repository! This repository contains my personal c
 
 ## Screenshots
 
-![i3 Desktop](pictures/image1.png)
+![i3 Blue](pictures/image1.png)
+
+![i3 Green](pictures/opensuse.png)
 
 ![Neofetch](pictures/image.png)
 
