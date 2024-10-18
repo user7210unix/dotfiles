@@ -7,6 +7,7 @@ Welcome to my **i3 dotfiles** repository! This repository contains my personal c
 - [Installation](#installation)
 - [Dependencies](#Dependencies)
 - [Screenshots](#Screenshots)
+- [Wallpapers](#Wallpapers)
 
 ## Screenshots
 
@@ -60,4 +61,8 @@ To get started with my i3 configuration, follow these steps:
    cp -r .config/picom ~/.config/
    cp -r .config/kitty ~/.config/
    cp -r .config/neofetch ~/.config/
+
+   
+## Wallpapers
+![Wallpapers](pictures/wallpapers.png)
    
