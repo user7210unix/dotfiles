@@ -31,7 +31,7 @@
         DWM is a dynamic window manager for X11 that is optimized for performance. It's extremely lightweight and efficient, perfect for users who want a fast, minimal, and fully customizable environment.
       </p>
     </div>
-    <img src="images/dwm.png" alt="DWM Icon" width="750" style="border: 2px solid #4CAF50; border-radius: 12px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);">
+    <img src="Images/dwm.png" alt="DWM Icon" width="750" style="border: 2px solid #4CAF50; border-radius: 12px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);">
   </div>
 
 
