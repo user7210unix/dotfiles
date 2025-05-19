@@ -4,7 +4,13 @@
 
 <div align="center">
 
-## 1. [🍂 DWM Gruvbox Edition](https://github.com/user7210unix/dotfiles/tree/dwm-gruvbox)
+## 1. [🌊 DWM Blue Edition](https://github.com/user7210unix/dotfiles/tree/dwm-blue)
+<img src="https://img.shields.io/badge/Health:-Optimized%20(Suitable%20for%20daily%20use)-brightgreen?style=flat">
+<img src="https://img.shields.io/badge/RAM Usage:-~300MB-brightgreen?style=flat">
+
+<p align="center"> <img src="https://github.com/user7210unix/dotfiles/raw/dwm-blue/showcase/rice.png" align="center" width="750"> </p>
+
+## 2. [🍂 DWM Gruvbox Edition](https://github.com/user7210unix/dotfiles/tree/dwm-gruvbox)
 <img src="https://img.shields.io/badge/Health:-Optimized%20(Suitable%20for%20daily%20use)-brightgreen?style=flat">
 <img src="https://img.shields.io/badge/RAM Usage:-~300MB-brightgreen?style=flat">
 
@@ -12,7 +18,7 @@
 
 <div align="center">
 
-## 2. [💜 Openbox Purple Edition](https://github.com/user7210unix/dotfiles/tree/dwm-gruvbox)
+## 3. [💜 Openbox Purple Edition](https://github.com/user7210unix/dotfiles/tree/dwm-gruvbox)
 <img src="https://img.shields.io/badge/Health:-Optimized%20(Suitable%20for%20daily%20use)-brightgreen?style=flat">
 <img src="https://img.shields.io/badge/RAM Usage:-~500MB-brightgreen?style=flat">
 
@@ -21,7 +27,7 @@
 
 <div align="center">
 
-## 3. [🫧 Openbox Blue Edition](https://github.com/user7210unix/dotfiles/raw/openbox-blue/image/openbox.png)
+## 4. [🫧 Openbox Blue Edition](https://github.com/user7210unix/dotfiles/tree/openbox-blue)
 <img src="https://img.shields.io/badge/Health:-Optimized%20(Suitable%20for%20daily%20use)-brightgreen?style=flat">
 <img src="https://img.shields.io/badge/RAM Usage:-~300MB-brightgreen?style=flat">
 
@@ -30,8 +36,33 @@
 
 <div align="center">
 
-## 4. [🍂 DWM Gruvbox Edition](https://github.com/user7210unix/dotfiles/tree/dwm-gruvbox)
+## 4. [⚫ DWM Black Edition](https://github.com/user7210unix/dotfiles/tree/dwm-black)
 <img src="https://img.shields.io/badge/Health:-Optimized%20(Suitable%20for%20daily%20use)-brightgreen?style=flat">
 <img src="https://img.shields.io/badge/RAM Usage:-~300MB-brightgreen?style=flat">
 
-<p align="center"> <img src="assets/fvwm.png" align="center" width="750"> </p>
+<p align="center"> <img src="https://github.com/user7210unix/dotfiles/raw/dwm-black/images/image2.png" align="center" width="750"> </p>
+
+<div align="center">
+
+## 4. [🌒 DWM Night Edition](https://github.com/user7210unix/dotfiles/tree/dwm-night)
+<img src="https://img.shields.io/badge/Health:-Optimized%20(Suitable%20for%20daily%20use)-brightgreen?style=flat">
+<img src="https://img.shields.io/badge/RAM Usage:-~300MB-brightgreen?style=flat">
+
+<p align="center"> <img src="https://github.com/user7210unix/dotfiles/raw/dwm-blue/showcase/rice.png" align="center" width="750"> </p>
+
+<div align="center">
+
+## 4. [🌊 DWM Blue Edition](https://github.com/user7210unix/dotfiles/tree/dwm-blue)
+<img src="https://img.shields.io/badge/Health:-Optimized%20(Suitable%20for%20daily%20use)-brightgreen?style=flat">
+<img src="https://img.shields.io/badge/RAM Usage:-~300MB-brightgreen?style=flat">
+
+<p align="center"> <img src="https://github.com/user7210unix/dotfiles/raw/dwm-blue/showcase/rice.png" align="center" width="750"> </p>
+
+<div align="center">
+
+## 4. [🌊 DWM Blue Edition](https://github.com/user7210unix/dotfiles/tree/dwm-blue)
+<img src="https://img.shields.io/badge/Health:-Optimized%20(Suitable%20for%20daily%20use)-brightgreen?style=flat">
+<img src="https://img.shields.io/badge/RAM Usage:-~300MB-brightgreen?style=flat">
+
+<p align="center"> <img src="https://github.com/user7210unix/dotfiles/raw/dwm-blue/showcase/rice.png" align="center" width="750"> </p>
+
