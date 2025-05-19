@@ -1,0 +1,145 @@
+#!/usr/bin/env python3
+
+import psutil
+import subprocess
+import time
+import datetime
+import re
+import os
+
+def get_dwm_tags():
+    """
+    Get the current DWM tags (workspaces) using `xprop` to read the root window properties.
+    This is a simplified approach; you might need to adjust based on your DWM setup.
+    """
+    try:
+        # Get the root window properties
+        output = subprocess.check_output(["xprop", "-root", "_NET_CURRENT_DESKTOP"]).decode()
+        current_desktop = int(re.search(r"_NET_CURRENT_DESKTOP\(CARDINAL\) = (\d+)", output).group(1))
+        
+        # DWM tags are typically 0-8 (9 tags by default)
+        tags = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        result = []
+        for i, tag in enumerate(tags):
+            if i == current_desktop:
+                result.append(f"[{tag}]")  # Highlight the active tag
+            else:
+                result.append(tag)
+        return " ".join(result)
+    except:
+        return "Tags: N/A"
+
+def get_active_window():
+    """
+    Get the class and title of the active window using `xprop`.
+    """
+    try:
+        # Get the active window ID
+        active_window_id = subprocess.check_output(["xprop", "-root", "_NET_ACTIVE_WINDOW"]).decode()
+        active_window_id = re.search(r"0x[\da-f]+", active_window_id).group(0)
+        
+        # Get the window class and title
+        window_info = subprocess.check_output(["xprop", "-id", active_window_id, "WM_CLASS", "WM_NAME"]).decode()
+        wm_class = re.search(r'WM_CLASS\(STRING\) = "[^"]+", "([^"]+)"', window_info).group(1)
+        wm_name = re.search(r'WM_NAME\(STRING\) = "([^"]+)"', window_info).group(1)
+        
+        # Truncate if too long
+        title = f"{wm_class} - {wm_name}"[:30]
+        return f"  {title}"
+    except:
+        return "  Empty"
+
+def get_volume():
+    """
+    Get the current volume level using `amixer`.
+    """
+    try:
+        output = subprocess.check_output(["amixer", "get", "Master"]).decode()
+        volume = re.search(r"\[(\d+)%\]", output).group(1)
+        muted = "[off]" in output
+        if muted:
+            return "  muted"
+        return f"  {volume}%"
+    except:
+        return "  N/A"
+
+def get_keyboard_layout():
+    """
+    Get the current keyboard layout using `setxkbmap`.
+    """
+    try:
+        output = subprocess.check_output(["setxkbmap", "-query"]).decode()
+        layout = re.search(r"layout:\s+(\w+)", output).group(1)
+        return f"  {layout}"
+    except:
+        return "  N/A"
+
+def get_memory():
+    """
+    Get memory usage using psutil.
+    """
+    memory = psutil.virtual_memory()
+    return f"  {memory.percent}%"
+
+def get_cpu():
+    """
+    Get CPU usage using psutil.
+    """
+    cpu_usage = psutil.cpu_percent(interval=1)
+    return f"󰻠 {cpu_usage}%"
+
+def get_date_time():
+    """
+    Get the current date and time.
+    """
+    now = datetime.datetime.now()
+    date_str = now.strftime("%a %b %d")  # e.g., "Mon Mar 18"
+    # 12-hour format with AM/PM (commented out)
+    # time_str = now.strftime("%I:%M:%S %p")  # e.g., "04:43:00 PM"
+    # 24-hour format (default)
+    time_str = now.strftime("%H:%M:%S")  # e.g., "16:43:00"
+    return f"󰥔 {time_str}   {date_str} "
+
+
+def get_battery():
+    """
+    Get battery status using psutil.
+    """
+    try:
+        battery = psutil.sensors_battery()
+        if battery:
+            percent = int(battery.percent)  # Convert to integer to keep it short
+            if battery.power_plugged:
+                return f"󰂅 {percent}%"
+            else:
+                return f"󰁹 {percent}%"
+        else:
+            return "󰁹 N/A"
+    except Exception:
+        return "󰁹 N/A"
+
+
+
+def update_status():
+    """
+    Gather all status information and update the DWM status bar using xsetroot.
+    """
+    status_parts = [
+        get_cpu(),    
+        get_battery(),
+        get_volume(),
+        get_date_time()
+    ]
+    status = "  ".join(status_parts)
+    subprocess.run(["xsetroot", "-name", status])
+
+def main():
+    """
+    Main loop to update the status bar every second.
+    """
+    while True:
+        update_status()
+        time.sleep(1)
+
+if __name__ == "__main__":
+    main()
