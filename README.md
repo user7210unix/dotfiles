@@ -1,37 +1,33 @@
-<p align="center"><img src="https://img.shields.io/github/issues/syndrizzle/hotfiles?color=171b20&label=Issues%20%20&logo=gnubash&labelColor=e05f65&logoColor=ffffff">&nbsp;&nbsp;&nbsp;<img src="https://img.shields.io/github/forks/syndrizzle/hotfiles?color=171b20&label=Forks%20%20&logo=git&labelColor=f1cf8a&logoColor=ffffff">&nbsp;&nbsp;&nbsp;<img src="https://img.shields.io/github/stars/syndrizzle/hotfiles?color=171b20&label=Stargazers&logo=github&labelColor=70a5eb">&nbsp;&nbsp;&nbsp;<img src="https://img.shields.io/badge/-Works on my machine-%2378dba9?style=flat&logo=linux&labelColor=171b20&logoColor=ffffff"></p>
 
-<p align="center"><b>Thanks for the visit!</b><br>Welcome to the <b>Hotfiles ️‍🔥</b> repository! Carefully designed with usability and functionality in mind, while being light on resources!</p>
-
-<div align="center">
-
-## 1. [🍂 DWM Gruvbox Edition](https://github.com/user7210unix/dotfiles/tree/dwm-gruvbox)
-<img src="https://img.shields.io/badge/Health:-Optimized%20(Suitable%20for%20daily%20use)-brightgreen?style=flat">
-<img src="https://img.shields.io/badge/RAM Usage:-~300MB-brightgreen?style=flat">
-
-<p align="center"> <img src="https://github.com/user7210unix/dotfiles/raw/dwm-gruvbox/images/1.png" align="center" width="750"> </p>
+<p align="center"><b>Thanks for the visit!</b><br>Welcome to the <b>Openbox Purple edition ️‍🔥</b>! Carefully designed with usability and functionality in mind, while being light on resources!</p>
 
 <div align="center">
+  <h2 style="font-size: 54px;">
+    <strong>
+      <a href="https://openbox.org/" style="text-decoration: none; color: inherit;">
+        Openbox
+      </a>
+    </strong>
+  </h2>
 
-## 2. [🍂 DWM Gruvbox Edition](https://github.com/user7210unix/dotfiles/tree/dwm-gruvbox)
-<img src="https://img.shields.io/badge/Health:-Optimized%20(Suitable%20for%20daily%20use)-brightgreen?style=flat">
-<img src="https://img.shields.io/badge/RAM Usage:-~300MB-brightgreen?style=flat">
+  <hr>
 
-<p align="center"> <img src="assets/fvwm.png" align="center" width="750"> </p>
+  <h3>⚙️ Features</h3>
+  <ul>
+    <li><strong>Application Launcher</strong> :rocket: <a href="https://github.com/davatorium/rofi">rofi</a></li>
+    <li><strong>fast pipe/static menu generator </strong> :flower_playing_cards: <a href="https://github.com/trizen/obmenu-generator">obmenu-generator</a></li>
+  </ul>
 
+  <hr>
 
+ <div align="center">
+  <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 40px; width: 80%; border-radius: 12px; border: 2px solid #4CAF50; padding: 20px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+    <div style="flex: 1; padding-right: 20px;">
+      <p style="font-size: 18px; color: #333; line-height: 1.6; font-family: 'Roboto', sans-serif;">
+        <span style="font-size: 24px; color: #FF5722;">⚡</span> 
+        Openbox is optimized for performance. It's lightweight and efficient, perfect for users who want a fast, minimal, and fully customizable environment.
+      </p>
+    </div>
+    <img src="images/openbox-purple.png" alt=" Icon" width="750" style="border: 2px solid #4CAF50; border-radius: 12px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);">
+  </div>
 <div align="center">
-
-## 3. [🍂 DWM Gruvbox Edition](https://github.com/user7210unix/dotfiles/tree/dwm-gruvbox)
-<img src="https://img.shields.io/badge/Health:-Optimized%20(Suitable%20for%20daily%20use)-brightgreen?style=flat">
-<img src="https://img.shields.io/badge/RAM Usage:-~300MB-brightgreen?style=flat">
-
-<p align="center"> <img src="assets/fvwm.png" align="center" width="750"> </p>
-
-
-<div align="center">
-
-## 4. [🍂 DWM Gruvbox Edition](https://github.com/user7210unix/dotfiles/tree/dwm-gruvbox)
-<img src="https://img.shields.io/badge/Health:-Optimized%20(Suitable%20for%20daily%20use)-brightgreen?style=flat">
-<img src="https://img.shields.io/badge/RAM Usage:-~300MB-brightgreen?style=flat">
-
-<p align="center"> <img src="assets/fvwm.png" align="center" width="750"> </p>
