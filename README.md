@@ -17,7 +17,7 @@
   <h3>⚙️ Features</h3>
   <ul>
     <li><strong>Window Manager</strong> :bento: <a href="https://dwm.suckless.org/">Dwm</a></li>
-    <li><strong>Application Launcher</strong> :rocket: <a href="https://tools.suckless.org/dmenu/">Dmenu</a></li>
+    <li><strong>Application Launcher</strong> :rocket: <a href="https://github.com/davatorium/rofi">rofi</a></li>
     <li><strong>Terminal</strong> :leaves: <a href="https://st.suckless.org/">St</a></li>
     <li><strong>Shell</strong> :shell: <a href="https://fishshell.com/">Fish</a></li>
     <li><strong>File Manager</strong> :flower_playing_cards: <a href="https://github.com/lxde/pcmanfm">PcmanFM</a></li>
@@ -40,7 +40,7 @@
 <div align="center">
 
 # Dwm-Panel
-### A custom made Python-based panel for dwm
+ A custom made Python-based panel for dwm
 
 <div align="center">
 
