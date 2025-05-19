@@ -1,0 +1,4 @@
+terminal          "st"
+music_player      "mpd"
+file_manager      "thunar"
+session_locker    "sleep 7s"
