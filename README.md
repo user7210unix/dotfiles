@@ -28,6 +28,6 @@
         Openbox is optimized for performance. It's lightweight and efficient, perfect for users who want a fast, minimal, and fully customizable environment.
       </p>
     </div>
-    <img src="images/openbox-purple.png" alt=" Icon" width="750" style="border: 2px solid #4CAF50; border-radius: 12px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);">
+    <img src="images/openbox-purple1.png" alt=" Icon" width="750" style="border: 2px solid #4CAF50; border-radius: 12px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);">
   </div>
 <div align="center">
