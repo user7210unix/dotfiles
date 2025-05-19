@@ -1,0 +1,67 @@
+# Theme name : sendiki-obtgen 
+# Generate from obtgen
+
+# Section: menu
+menu.border.width:                      16
+menu.border.color:                      #798EA3
+menu.separator.color:                   #798EA3
+menu.*.bg:                              flat
+menu.*.bg.color:                        #798EA3
+menu.*.text.color:                      #dde0e8
+menu.*.text.justify:                    center 
+menu.*.disabled.text.color:             #3a5657
+menu.*.active.text.color:               #3a5657
+menu.*.active.bg.color:                 #dde0e8
+
+# Section: osd
+osd.border.width:                       0
+osd.border.color:                       #3a5657
+osd.bg:                                 flat
+osd.bg.color:                           #3a5657
+osd.label.bg:                           flat solid
+osd.label.bg.color:                     #3a5657
+osd.label.text.color:                   #dde0e8
+osd.hilight.bg:                         flat solid
+osd.hilight.bg.color:                   #798EA3
+osd.unhilight.bg:                       flat
+osd.unhilight.bg.color:                 #9a9ca2
+osd.button.unpressed.bg:                flat
+osd.button.unpressed.bg.color:          #9a9ca2
+osd.button.unpressed.*.border.color:    #3a5657
+osd.button.pressed.bg:                  flat
+osd.button.pressed.bg.color:            #9a9ca2
+osd.button.pressed.*.border.color:      #3a5657
+osd.button.focused.bg:                  flat  
+osd.button.focused.bg.color:            #3a5657
+osd.button.focused.*.border.color:      #3a5657
+osd.button.focused.box.color:           #798EA3
+
+# Section: window 
+window.*.bg:                            flat parentrelative
+window.*.*.bg:                          flat parentrelative
+window.*.*.*.bg:                        flat parentrelative
+window.*.text.justify:                  center
+window.active.button.*.*.image.color:   #3a5657
+window.active.label.text.color:         #3a5657
+window.active.title.bg.color:           #798EA3
+window.active.title.separator.color:    #798EA3
+window.active.border.color:             #798EA3
+window.inactive.button.*.*.image.color: #3a5657
+window.inactive.label.text.color:       #3a5657
+window.inactive.title.bg.color:         #798EA3
+window.inactive.title.separator.color:  #798EA3
+window.inactive.border.color:           #798EA3
+
+# Section: fonts
+window.active.label.text.font:          shadow=n
+window.inactive.label.text.font:        shadow=n
+menu.items.font:                        shadow=n
+menu.title.text.font:                   shadow=n
+
+# Section: misc
+border.width:                           0
+padding.width:                          10
+padding.height:                         10
+window.handle.width:                    0
+window.client.padding.width:            0
+window.label.text.justify:              center
