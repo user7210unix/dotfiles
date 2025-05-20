@@ -11,11 +11,14 @@ static       int smartgaps          = 0;        /* 1 means no outer gap when the
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "JetBrainsMono Nerd Font:Bold:size=18" };
-static const char col_bg1[]       = "#1d2021";
-static const char col_bg2[]       = "#282828";
-static const char col_bg3[]       = "#4f4845";
-static const char col_fg1[]       = "#fbf1c7";
-static const char col_acc[]       = "#7c6f64";
+
+/* Background and foreground color definitions */
+static const char col_bg1[]       = "#1d2021"; // Background color 1: Top bar background
+static const char col_bg2[]       = "#282828"; // Background color 2: Normal window borders
+static const char col_bg3[]       = "#cccccc"; // Foreground for normal windows (unfocused)
+static const char col_fg1[]       = "#fbf1c7"; // Foreground for selected windows (focused)
+static const char col_acc[]       = "#7c6f64"; // Accent color for selected window borders
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_bg3, col_bg1, col_bg2 },
