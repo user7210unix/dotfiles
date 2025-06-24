@@ -23,7 +23,7 @@
 
 <p align="center"> <img src="https://github.com/user7210unix/dotfiles/raw/dwm-gruvbox/images/1.png" align="center" width="750"> </p>
 
-## 2. [💜 Openbox Dark Purple Edition](https://github.com/user7210unix/dotfiles/tree/openbox-dark-purple)
+## 3. [💜 Openbox Dark Purple Edition](https://github.com/user7210unix/dotfiles/tree/openbox-dark-purple)
 <img src="https://img.shields.io/badge/Health:-Optimized%20(Suitable%20for%20daily%20use)-brightgreen?style=flat">
 <img src="https://img.shields.io/badge/RAM Usage:-~300MB-brightgreen?style=flat">
 
@@ -31,7 +31,7 @@
 
 <div align="center">
 
-## 3. [💜 Openbox Purple Edition](https://github.com/user7210unix/dotfiles/tree/dwm-gruvbox)
+## 4. [💜 Openbox Purple Edition](https://github.com/user7210unix/dotfiles/tree/dwm-gruvbox)
 <img src="https://img.shields.io/badge/Health:-Optimized%20(Suitable%20for%20daily%20use)-brightgreen?style=flat">
 <img src="https://img.shields.io/badge/RAM Usage:-~500MB-brightgreen?style=flat">
 
@@ -40,7 +40,7 @@
 
 <div align="center">
 
-## 4. [🫧 Openbox Blue Edition](https://github.com/user7210unix/dotfiles/tree/openbox-blue)
+## 5. [🫧 Openbox Blue Edition](https://github.com/user7210unix/dotfiles/tree/openbox-blue)
 <img src="https://img.shields.io/badge/Health:-Optimized%20(Suitable%20for%20daily%20use)-brightgreen?style=flat">
 <img src="https://img.shields.io/badge/RAM Usage:-~300MB-brightgreen?style=flat">
 
@@ -49,7 +49,7 @@
 
 <div align="center">
 
-## 4. [⚫ DWM Black Edition](https://github.com/user7210unix/dotfiles/tree/dwm-black)
+## 6. [⚫ DWM Black Edition](https://github.com/user7210unix/dotfiles/tree/dwm-black)
 <img src="https://img.shields.io/badge/Health:-Optimized%20(Suitable%20for%20daily%20use)-brightgreen?style=flat">
 <img src="https://img.shields.io/badge/RAM Usage:-~300MB-brightgreen?style=flat">
 
@@ -57,7 +57,7 @@
 
 <div align="center">
 
-## 4. [🌒 DWM Night Edition](https://github.com/user7210unix/dotfiles/tree/dwm-night)
+## 7. [🌒 DWM Night Edition](https://github.com/user7210unix/dotfiles/tree/dwm-night)
 <img src="https://img.shields.io/badge/Health:-Optimized%20(Suitable%20for%20daily%20use)-brightgreen?style=flat">
 <img src="https://img.shields.io/badge/RAM Usage:-~300MB-brightgreen?style=flat">
 
@@ -65,7 +65,7 @@
 
 <div align="center">
 
-## 4. [i3 Dark Edition](https://github.com/user7210unix/dotfiles/tree/i3-dark)
+## 8. [i3 Dark Edition](https://github.com/user7210unix/dotfiles/tree/i3-dark)
 <img src="https://img.shields.io/badge/Health:-Optimized%20(Suitable%20for%20daily%20use)-brightgreen?style=flat">
 <img src="https://img.shields.io/badge/RAM Usage:-~300MB-brightgreen?style=flat">
 
