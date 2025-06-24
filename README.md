@@ -27,7 +27,7 @@
 <img src="https://img.shields.io/badge/Health:-Optimized%20(Suitable%20for%20daily%20use)-brightgreen?style=flat">
 <img src="https://img.shields.io/badge/RAM Usage:-~300MB-brightgreen?style=flat">
 
-<p align="center"> <img src="https://raw.githubusercontent.com/user7210unix/dotfiles/refs/heads/openbox-dark-purple/openbox1.png" align="center" width="750"> </p>
+<p align="center"> <img src="https://raw.githubusercontent.com/user7210unix/dotfiles/refs/heads/openbox-dark-purple/openbox.png" align="center" width="750"> </p>
 
 <div align="center">
 
