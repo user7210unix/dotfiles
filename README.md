@@ -72,7 +72,7 @@
 <p align="center"> <img src="https://github.com/user7210unix/dotfiles/raw/i3-dark/pictures/preview.png" align="center" width="750"> </p>
 
 
-## 9. [Openbox Blue Dark Edition](https://github.com/user7210unix/openbox-dot/tree/main/openbox-dark-blue)
+## 9. [Openbox Blue Dark Edition](https://github.com/user7210unix/dotfiles/releases/download/2.0/dark-blue-openbox.zip)
 <img src="https://img.shields.io/badge/Health:-Optimized%20(Suitable%20for%20daily%20use)-brightgreen?style=flat">
 <img src="https://img.shields.io/badge/RAM Usage:-~300MB-brightgreen?style=flat">
 
