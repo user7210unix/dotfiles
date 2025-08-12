@@ -5,7 +5,7 @@
 
 
 
-<p align="center"><img src="https://img.shields.io/badge/-Made by user7210unix-%2378dba9?style=flat&logo=linux&labelColor=171b20&logoColor=ffffff"></p>
+<p align="center"><img src="https://img.shields.io/badge/-Made by user7210unix-%2378dba9?style=flat&logo=linux&labelColor=171b20&logoColor=ffffff"></p> <p align="center"><img src="https://img.shields.io/badge/Gentoo-54487A?logo=gentoo&logoColor=fff"></p>
 
 <p align="center"><b>Thanks for the visit!</b><br>Welcome to the <b>Dotfiles ️‍🔥</b> Collection! Carefully designed with usability and functionality in mind, while being light on resources!</p>
 
@@ -77,3 +77,9 @@
 <img src="https://img.shields.io/badge/RAM Usage:-~300MB-brightgreen?style=flat">
 
 <p align="center"> <img src="https://raw.githubusercontent.com/user7210unix/openbox-dot/refs/heads/main/openbox-dark-blue/backgrounds/blue.png" align="center" width="750"> </p>
+
+## 10. [🌹 Openbox Night Rose Edition](https://github.com/user7210unix/dotfiles/releases/download/3.5/night-rose-dots.zip)
+<img src="https://img.shields.io/badge/Health:-Optimized%20(Suitable%20for%20daily%20use)-brightgreen?style=flat">
+<img src="https://img.shields.io/badge/RAM Usage:-~200MB-brightgreen?style=flat">
+
+<p align="center"> <img src="https://raw.githubusercontent.com/user7210unix/openbox-dot/refs/heads/main/nightrose.png" align="center" width="750"> </p>
