@@ -83,3 +83,9 @@
 <img src="https://img.shields.io/badge/RAM Usage:-~200MB-brightgreen?style=flat">
 
 <p align="center"> <img src="https://raw.githubusercontent.com/user7210unix/openbox-dot/refs/heads/main/nightrose.png" align="center" width="750"> </p>
+
+## 10. [🍁 Gruvbox i3](https://github.com/user7210unix/gruvbox-i3/releases/download/1.0/gruvbox-i3.tar.gz)
+<img src="https://img.shields.io/badge/Health:-Optimized%20(Suitable%20for%20daily%20use)-brightgreen?style=flat">
+<img src="https://img.shields.io/badge/RAM Usage:-~150MB-brightgreen?style=flat">
+
+<p align="center"> <img src="https://raw.githubusercontent.com/user7210unix/gruvbox-i3/refs/heads/main/preview.png" align="center" width="750"> </p>
