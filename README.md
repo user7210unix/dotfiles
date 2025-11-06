@@ -89,3 +89,9 @@
 <img src="https://img.shields.io/badge/RAM Usage:-~150MB-brightgreen?style=flat">
 
 <p align="center"> <img src="https://raw.githubusercontent.com/user7210unix/gruvbox-i3/refs/heads/main/preview.png" align="center" width="750"> </p>
+
+## 12. [🌊 I3 Blue Edition](https://github.com/user7210unix/dotfiles/tree/i3-blue)
+<img src="https://img.shields.io/badge/Health:-Optimized%20(Suitable%20for%20daily%20use)-brightgreen?style=flat">
+<img src="https://img.shields.io/badge/RAM Usage:-~300MB-brightgreen?style=flat">
+
+<p align="center"> <img src="https://raw.githubusercontent.com/user7210unix/dotfiles/refs/heads/i3-blue/preview.png" align="center" width="750"> </p>
