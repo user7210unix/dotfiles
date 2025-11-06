@@ -5,12 +5,12 @@
 
 
 
-<p align="center"><img src="https://img.shields.io/badge/-Made by user7210unix-%2378dba9?style=flat&logo=linux&labelColor=171b20&logoColor=ffffff"></p> <p align="center"><img src="https://img.shields.io/badge/Gentoo-54487A?logo=gentoo&logoColor=fff"></p>
+<p align="center"><img src="https://img.shields.io/badge/-Made by user7210unix-%2378dba9?style=flat&logo=linux&labelColor=171b20&logoColor=ffffff"></p> 
 
 <p align="center"><b>Thanks for the visit!</b><br>Welcome to the <b>Dotfiles ️‍🔥</b> Collection! Carefully designed with usability and functionality in mind, while being light on resources!</p>
 
 <div align="center">
 
-## 1. [🌊 I3 Blue Edition](https://github.com/user7210unix/dotfiles/tree/dwm-blue)
-<img src="https://img.shields.io/badge/Health:-Optimized%20(Suitable%20for%20daily%20use)-brightgreen?style=flat">
+## 1. 🌊 I3 Blue Edition
+<img src="preview.png">
 <img src="https://img.shields.io/badge/RAM Usage:-~300MB-brightgreen?style=flat">
