@@ -1,0 +1,36 @@
+/**
+ * Rofi Config – Fixed & Polybar-Aligned
+ * Location: 0 = North (top of screen)
+ */
+
+configuration {
+    modi: "drun,run,window";
+    font: "M PLUS Code Latin Medium 12";
+    show-icons: true;
+    icon-theme: "Papirus";
+    terminal: "alacritty";
+    drun-display-format: "{name}";
+    disable-history: false;
+    sidebar-mode: false;
+
+    /* Polybar alignment */
+    location: 0;        /* 0 = North (top) */
+    yoffset: 40;        /* Below Polybar */
+    xoffset: 0;
+    fixed-num-lines: false;
+
+    kb-accept-entry: "Return,Control+m";
+    kb-cancel: "Escape,Control+g";
+
+    timeout {
+        action: "kb-cancel";
+        delay:  0;
+    }
+
+    filebrowser {
+        directories-first: true;
+        sorting-method:    "name";
+    }
+}
+
+@theme "~/.config/rofi/themes/minimal-modern.rasi"
