@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dotfiles Collection | user7210unix</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            transition: opacity 0.8s ease;
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            filter: blur(60px) brightness(0.4);
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        .background-image.active {
+            opacity: 1;
+        }
+
+        .background-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #fff 0%, #a0a0a0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -2px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .github-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Desktop Gallery */
+        .gallery-container {
+            display: none;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 40px 80px;
+        }
+
+        .gallery-scroll {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            padding: 20px 0 40px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .gallery-scroll::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .gallery-scroll::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+
+        .gallery-scroll::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+        }
+
+        .gallery-scroll::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .gallery-item {
+            min-width: 450px;
+            scroll-snap-align: start;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Mobile Swiper */
+        .mobile-swiper {
+            display: none;
+            position: relative;
+            height: calc(100vh - 280px);
+            min-height: 500px;
+            max-width: 100%;
+            margin: 0 auto;
+            touch-action: pan-y;
+        }
+
+        .swiper-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            position: absolute;
+            width: 90%;
+            max-width: 450px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .swiper-slide.active {
+            opacity: 1;
+            pointer-events: auto;
+            z-index: 3;
+        }
+
+        .swiper-slide.prev {
+            opacity: 0.3;
+            transform: translate(-130%, -50%) scale(0.85);
+            z-index: 1;
+        }
+
+        .swiper-slide.next {
+            opacity: 0.3;
+            transform: translate(30%, -50%) scale(0.85);
+            z-index: 1;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-image-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .card-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover .card-image {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #fff;
+            letter-spacing: -0.5px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-badge {
+            padding: 8px 14px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            white-space: nowrap;
+        }
+
+        .card-links {
+            display: flex;
+            gap: 12px;
+            margin-top: auto;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 14px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: rgba(255, 255, 255, 0.9);
+            color: #000;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .swipe-indicator {
+            display: none;
+            justify-content: center;
+            gap: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: rgba(255, 255, 255, 0.9);
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        @media (min-width: 769px) {
+            .gallery-container {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            header {
+                padding: 40px 20px 30px;
+            }
+
+            .mobile-swiper {
+                display: block;
+            }
+
+            .swipe-indicator {
+                display: flex;
+            }
+
+            .card-title {
+                font-size: 1.5rem;
+            }
+
+            .card-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-container">
+        <div class="background-image active" id="bg-0" style="background-image: url('https://github.com/user7210unix/dotfiles/raw/dwm-blue/showcase/rice.png');"></div>
+        <div class="background-image" id="bg-1" style="background-image: url('https://github.com/user7210unix/dotfiles/raw/dwm-gruvbox/images/1.png');"></div>
+        <div class="background-image" id="bg-2" style="background-image: url('https://raw.githubusercontent.com/user7210unix/dotfiles/refs/heads/openbox-dark-purple/openbox.png');"></div>
+        <div class="background-image" id="bg-3" style="background-image: url('https://github.com/user7210unix/dotfiles/blob/openbox-purple/images/openbox-purple1.png');"></div>
+        <div class="background-image" id="bg-4" style="background-image: url('https://github.com/user7210unix/dotfiles/raw/openbox-blue/image/openbox.png');"></div>
+        <div class="background-image" id="bg-5" style="background-image: url('https://github.com/user7210unix/dotfiles/raw/dwm-black/images/image2.png');"></div>
+        <div class="background-image" id="bg-6" style="background-image: url('https://github.com/user7210unix/dotfiles/raw/dwm-night/Images/dwm.png');"></div>
+        <div class="background-image" id="bg-7" style="background-image: url('https://github.com/user7210unix/dotfiles/raw/i3-dark/pictures/preview.png');"></div>
+        <div class="background-image" id="bg-8" style="background-image: url('https://raw.githubusercontent.com/user7210unix/openbox-dot/refs/heads/main/openbox-dark-blue/backgrounds/blue.png');"></div>
+        <div class="background-image" id="bg-9" style="background-image: url('https://raw.githubusercontent.com/user7210unix/openbox-dot/refs/heads/main/nightrose2.png');"></div>
+        <div class="background-image" id="bg-10" style="background-image: url('https://raw.githubusercontent.com/user7210unix/gruvbox-i3/refs/heads/main/preview.png');"></div>
+        <div class="background-image" id="bg-11" style="background-image: url('https://raw.githubusercontent.com/user7210unix/dotfiles/refs/heads/i3-blue/i3-preview.png');"></div>
+        <div class="background-overlay"></div>
+    </div>
+
+    <header>
+        <h1>🔥 Dotfiles Gallery</h1>
+        <p class="subtitle">Carefully crafted configurations designed for performance and aesthetics</p>
+        <a href="https://github.com/user7210unix/dotfiles" class="github-link" target="_blank">
+            <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+            GitHub Repository
+        </a>
+    </header>
+
+    <!-- Desktop Gallery -->
+    <div class="gallery-container">
+        <div class="gallery-scroll" id="galleryScroll">
+            <div class="gallery-item" data-index="0">
+                <div class="card">
+                    <div class="card-image-container">
+                        <img src="https://github.com/user7210unix/dotfiles/raw/dwm-blue/showcase/rice.png" alt="DWM Blue Edition" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">🌊 DWM Blue Edition</h2>
+                        <div class="stats">
+                            <span class="stat-badge">~300MB RAM</span>
+                            <span class="stat-badge">✓ Daily Use</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://github.com/user7210unix/dotfiles/tree/dwm-blue" class="btn btn-primary" target="_blank">View →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-index="1">
+                <div class="card">
+                    <div class="card-image-container">
+                        <img src="https://github.com/user7210unix/dotfiles/raw/dwm-gruvbox/images/1.png" alt="DWM Gruvbox Edition" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">🍂 DWM Gruvbox Edition</h2>
+                        <div class="stats">
+                            <span class="stat-badge">~300MB RAM</span>
+                            <span class="stat-badge">✓ Daily Use</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://github.com/user7210unix/dotfiles/tree/dwm-gruvbox" class="btn btn-primary" target="_blank">View →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-index="2">
+                <div class="card">
+                    <div class="card-image-container">
+                        <img src="https://raw.githubusercontent.com/user7210unix/dotfiles/refs/heads/openbox-dark-purple/openbox.png" alt="Openbox Dark Purple Edition" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">💜 Openbox Dark Purple</h2>
+                        <div class="stats">
+                            <span class="stat-badge">~300MB RAM</span>
+                            <span class="stat-badge">✓ Daily Use</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://github.com/user7210unix/dotfiles/tree/openbox-dark-purple" class="btn btn-primary" target="_blank">View →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-index="3">
+                <div class="card">
+                    <div class="card-image-container">
+                        <img src="https://raw.githubusercontent.com/user7210unix/dotfiles/refs/heads/openbox-purple/images/openbox-purple1.png" alt="Openbox Purple Edition" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">💜 Openbox Purple</h2>
+                        <div class="stats">
+                            <span class="stat-badge">~500MB RAM</span>
+                            <span class="stat-badge">✓ Daily Use</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://github.com/user7210unix/dotfiles/tree/dwm-gruvbox" class="btn btn-primary" target="_blank">View →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-index="4">
+                <div class="card">
+                    <div class="card-image-container">
+                        <img src="https://github.com/user7210unix/dotfiles/raw/openbox-blue/image/openbox.png" alt="Openbox Blue Edition" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">🫧 Openbox Blue</h2>
+                        <div class="stats">
+                            <span class="stat-badge">~300MB RAM</span>
+                            <span class="stat-badge">✓ Daily Use</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://github.com/user7210unix/dotfiles/tree/openbox-blue" class="btn btn-primary" target="_blank">View →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-index="5">
+                <div class="card">
+                    <div class="card-image-container">
+                        <img src="https://github.com/user7210unix/dotfiles/raw/dwm-black/images/image2.png" alt="DWM Black Edition" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">⚫ DWM Black Edition</h2>
+                        <div class="stats">
+                            <span class="stat-badge">~300MB RAM</span>
+                            <span class="stat-badge">✓ Daily Use</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://github.com/user7210unix/dotfiles/tree/dwm-black" class="btn btn-primary" target="_blank">View →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-index="6">
+                <div class="card">
+                    <div class="card-image-container">
+                        <img src="https://github.com/user7210unix/dotfiles/raw/dwm-night/Images/dwm.png" alt="DWM Night Edition" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">🌒 DWM Night Edition</h2>
+                        <div class="stats">
+                            <span class="stat-badge">~300MB RAM</span>
+                            <span class="stat-badge">✓ Daily Use</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://github.com/user7210unix/dotfiles/tree/dwm-night" class="btn btn-primary" target="_blank">View →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-index="7">
+                <div class="card">
+                    <div class="card-image-container">
+                        <img src="https://github.com/user7210unix/dotfiles/raw/i3-dark/pictures/preview.png" alt="i3 Dark Edition" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">i3 Dark Edition</h2>
+                        <div class="stats">
+                            <span class="stat-badge">~300MB RAM</span>
+                            <span class="stat-badge">✓ Daily Use</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://github.com/user7210unix/dotfiles/tree/i3-dark" class="btn btn-primary" target="_blank">View →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-index="8">
+                <div class="card">
+                    <div class="card-image-container">
+                        <img src="https://raw.githubusercontent.com/user7210unix/openbox-dot/refs/heads/main/openbox-dark-blue/backgrounds/blue.png" alt="Openbox Blue Dark Edition" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">Openbox Blue Dark</h2>
+                        <div class="stats">
+                            <span class="stat-badge">~300MB RAM</span>
+                            <span class="stat-badge">✓ Daily Use</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://github.com/user7210unix/dotfiles/releases/download/2.0/dark-blue-openbox.zip" class="btn btn-primary" target="_blank">Download ↓</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-index="9">
+                <div class="card">
+                    <div class="card-image-container">
+                        <img src="https://raw.githubusercontent.com/user7210unix/openbox-dot/refs/heads/main/nightrose2.png" alt="Openbox Night Rose Edition" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">🌹 Openbox Night Rose</h2>
+                        <div class="stats">
+                            <span class="stat-badge">~200MB RAM</span>
+                            <span class="stat-badge">✓ Daily Use</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://github.com/user7210unix/dotfiles/releases/download/3.5/night-rose-dots.zip" class="btn btn-primary" target="_blank">Download ↓</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-index="10">
+                <div class="card">
+                    <div class="card-image-container">
+                        <img src="https://raw.githubusercontent.com/user7210unix/gruvbox-i3/refs/heads/main/preview.png" alt="Gruvbox i3" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">🍁 Gruvbox i3</h2>
+                        <div class="stats">
+                            <span class="stat-badge">~150MB RAM</span>
+                            <span class="stat-badge">✓ Daily Use</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://github.com/user7210unix/gruvbox-i3/releases/download/1.0/gruvbox-i3.tar.gz" class="btn btn-primary" target="_blank">Download ↓</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-index="11">
+                <div class="card">
+                    <div class="card-image-container">
+                        <img src="https://raw.githubusercontent.com/user7210unix/dotfiles/refs/heads/i3-blue/i3-preview.png" alt="I3 Blue Edition" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">🌊 I3 Blue Edition</h2>
+                        <div class="stats">
+                            <span class="stat-badge">~300MB RAM</span>
+                            <span class="stat-badge">✓ Daily Use</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://github.com/user7210unix/dotfiles/tree/i3-blue" class="btn btn-primary" target="_blank">View →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Swiper -->
+    <div class="mobile-swiper">
+        <div class="swiper-container" id="swiperContainer">
+            <!-- Cards will be dynamically populated here -->
+        </div>
+    </div>
+
+    <div class="swipe-indicator" id="swiperDots">
+        <!-- Dots will be dynamically populated here -->
+    </div>
+
+    <footer>
+        <p>Crafted by <a href="https://github.com/user7210unix" target="_blank">user7210unix</a> • Powered by Gentoo Linux 🐧</p>
+    </footer>
+
+    <script>
+        const configs = [
+            {
+                title: "🌊 DWM Blue Edition",
+                image: "https://github.com/user7210unix/dotfiles/raw/dwm-blue/showcase/rice.png",
+                ram: "~300MB RAM",
+                link: "https://github.com/user7210unix/dotfiles/tree/dwm-blue",
+                type: "View"
+            },
+            {
+                title: "🍂 DWM Gruvbox Edition",
+                image: "https://github.com/user7210unix/dotfiles/raw/dwm-gruvbox/images/1.png",
+                ram: "~300MB RAM",
+                link: "https://github.com/user7210unix/dotfiles/tree/dwm-gruvbox",
+                type: "View"
+            },
+            {
+                title: "💜 Openbox Dark Purple",
+                image: "https://raw.githubusercontent.com/user7210unix/dotfiles/refs/heads/openbox-dark-purple/openbox.png",
+                ram: "~300MB RAM",
+                link: "https://github.com/user7210unix/dotfiles/tree/openbox-dark-purple",
+                type: "View"
+            },
+            {
+                title: "💜 Openbox Purple",
+                image: "https://github.com/user7210unix/dotfiles/blob/openbox-purple/images/openbox-purple1.png",
+                ram: "~500MB RAM",
+                link: "https://github.com/user7210unix/dotfiles/tree/dwm-gruvbox",
+                type: "View"
+            },
+            {
+                title: "🫧 Openbox Blue",
+                image: "https://github.com/user7210unix/dotfiles/raw/openbox-blue/image/openbox.png",
+                ram: "~300MB RAM",
+                link: "https://github.com/user7210unix/dotfiles/tree/openbox-blue",
+                type: "View"
+            },
+            {
+                title: "⚫ DWM Black Edition",
+                image: "https://github.com/user7210unix/dotfiles/raw/dwm-black/images/image2.png",
+                ram: "~300MB RAM",
+                link: "https://github.com/user7210unix/dotfiles/tree/dwm-black",
+                type: "View"
+            },
+            {
+                title: "🌒 DWM Night Edition",
+                image: "https://github.com/user7210unix/dotfiles/raw/dwm-night/Images/dwm.png",
+                ram: "~300MB RAM",
+                link: "https://github.com/user7210unix/dotfiles/tree/dwm-night",
+                type: "View"
+            },
+            {
+                title: "i3 Dark Edition",
+                image: "https://github.com/user7210unix/dotfiles/raw/i3-dark/pictures/preview.png",
+                ram: "~300MB RAM",
+                link: "https://github.com/user7210unix/dotfiles/tree/i3-dark",
+                type: "View"
+            },
+            {
+                title: "Openbox Blue Dark",
+                image: "https://raw.githubusercontent.com/user7210unix/openbox-dot/refs/heads/main/openbox-dark-blue/backgrounds/blue.png",
+                ram: "~300MB RAM",
+                link: "https://github.com/user7210unix/dotfiles/releases/download/2.0/dark-blue-openbox.zip",
+                type: "Download"
+            },
+            {
+                title: "🌹 Openbox Night Rose",
+                image: "https://raw.githubusercontent.com/user7210unix/openbox-dot/refs/heads/main/nightrose2.png",
+                ram: "~200MB RAM",
+                link: "https://github.com/user7210unix/dotfiles/releases/download/3.5/night-rose-dots.zip",
+                type: "Download"
+            },
+            {
+                title: "🍁 Gruvbox i3",
+                image: "https://raw.githubusercontent.com/user7210unix/gruvbox-i3/refs/heads/main/preview.png",
+                ram: "~150MB RAM",
+                link: "https://github.com/user7210unix/gruvbox-i3/releases/download/1.0/gruvbox-i3.tar.gz",
+                type: "Download"
+            },
+            {
+                title: "🌊 I3 Blue Edition",
+                image: "https://raw.githubusercontent.com/user7210unix/dotfiles/refs/heads/i3-blue/i3-preview.png",
+                ram: "~300MB RAM",
+                link: "https://github.com/user7210unix/dotfiles/tree/i3-blue",
+                type: "View"
+            }
+        ];
+
+        // Mobile Swiper Logic
+        let currentIndex = 0;
+        const swiperContainer = document.getElementById('swiperContainer');
+        const swiperDots = document.getElementById('swiperDots');
+        const galleryScroll = document.getElementById('galleryScroll');
+
+        // Populate mobile swiper
+        configs.forEach((config, index) => {
+            const slide = document.createElement('div');
+            slide.className = 'swiper-slide';
+            slide.innerHTML = `
+                <div class="card">
+                    <div class="card-image-container">
+                        <img src="${config.image}" alt="${config.title}" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">${config.title}</h2>
+                        <div class="stats">
+                            <span class="stat-badge">${config.ram}</span>
+                            <span class="stat-badge">✓ Daily Use</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="${config.link}" class="btn btn-primary" target="_blank">${config.type} ${config.type === 'Download' ? '↓' : '→'}</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            swiperContainer.appendChild(slide);
+
+            const dot = document.createElement('div');
+            dot.className = 'dot';
+            swiperDots.appendChild(dot);
+        });
+
+        const slides = document.querySelectorAll('.swiper-slide');
+        const dots = document.querySelectorAll('.dot');
+
+        function updateSlides() {
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active', 'prev', 'next');
+                if (index === currentIndex) {
+                    slide.classList.add('active');
+                } else if (index === currentIndex - 1 || (currentIndex === 0 && index === slides.length - 1)) {
+                    slide.classList.add('prev');
+                } else if (index === currentIndex + 1 || (currentIndex === slides.length - 1 && index === 0)) {
+                    slide.classList.add('next');
+                }
+            });
+
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+
+            updateBackground(currentIndex);
+        }
+
+        function updateBackground(index) {
+            const backgrounds = document.querySelectorAll('.background-image');
+            backgrounds.forEach((bg, i) => {
+                bg.classList.toggle('active', i === index);
+            });
+        }
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        swiperContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        swiperContainer.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateSlides();
+            }
+            if (touchEndX > touchStartX + 50) {
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                updateSlides();
+            }
+        }
+
+        updateSlides();
+
+        // Desktop Gallery Background Change
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        galleryItems.forEach((item) => {
+            item.addEventListener('mouseenter', () => {
+                const index = parseInt(item.dataset.index);
+                updateBackground(index);
+            });
+        });
+
+        // Observe which gallery item is in view for background change on scroll
+        const observerOptions = {
+            root: galleryScroll,
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const index = parseInt(entry.target.dataset.index);
+                    updateBackground(index);
+                }
+            });
+        }, observerOptions);
+
+        galleryItems.forEach(item => observer.observe(item))
