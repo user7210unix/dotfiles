@@ -12,5 +12,5 @@
 <div align="center">
 
 ## 1. 🌊 I3 Blue Edition
-<img src="preview.png">
+<img src="i3-preview.png">
 <img src="https://img.shields.io/badge/RAM Usage:-~300MB-brightgreen?style=flat">
