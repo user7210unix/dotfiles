@@ -1,0 +1,472 @@
+/*
+ * ███████╗██╗██████╗ ███████╗███████╗ ██████╗ ██╗  ██╗
+ * ██╔════╝██║██╔══██╗██╔════╝██╔════╝██╔═══██╗╚██╗██╔╝
+ * █████╗  ██║██████╔╝█████╗  █████╗  ██║   ██║ ╚███╔╝ 
+ * ██╔══╝  ██║██╔══██╗██╔══╝  ██╔══╝  ██║   ██║ ██╔██╗ 
+ * ██║     ██║██║  ██║███████╗██║     ╚██████╔╝██╔╝ ██╗
+ * ╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚═╝      ╚═════╝ ╚═╝  ╚═╝
+ *
+ * Custom Dark Theme - Minimal & Clean
+ * Place in: ~/.mozilla/firefox/PROFILE/chrome/userChrome.css
+ *
+ * Colors from Polybar config:
+ * - Background: #101012
+ * - Background Alt: #1a1a1c
+ * - Foreground: #bfc9db
+ * - Accent: #fff59d (bright yellow)
+ * - Highlights: #8AB4F8 (blue), #a5d6a7 (green), #cf6679 (red)
+ */
+
+/* ============================
+   ROOT VARIABLES
+   ============================ */
+
+:root {
+  /* Main colors */
+  --bg-primary: #101012 !important;
+  --bg-secondary: #1a1a1c !important;
+  --fg-primary: #bfc9db !important;
+  --fg-secondary: #858893 !important;
+  --fg-tertiary: #646a73 !important;
+  
+  /* Accent colors */
+  --accent-yellow: #fff59d !important;
+  --accent-blue: #8AB4F8 !important;
+  --accent-green: #a5d6a7 !important;
+  --accent-red: #cf6679 !important;
+  --accent-magenta: #bb86fc !important;
+  --accent-cyan: #03dac6 !important;
+  
+  /* UI elements */
+  --toolbar-bgcolor: var(--bg-primary) !important;
+  --tab-selected-bgcolor: var(--bg-secondary) !important;
+  --lwt-tab-text: var(--fg-primary) !important;
+  --lwt-selected-tab-background-color: var(--bg-secondary) !important;
+  --toolbar-field-background-color: var(--bg-secondary) !important;
+  --toolbar-field-color: var(--fg-primary) !important;
+  --toolbar-field-border-color: var(--fg-tertiary) !important;
+  --toolbar-field-focus-border-color: var(--accent-yellow) !important;
+  
+  /* Spacing */
+  --tab-min-height: 36px !important;
+  --toolbarbutton-border-radius: 6px !important;
+  --tab-border-radius: 8px !important;
+}
+
+/* ============================
+   GLOBAL OVERRIDES
+   ============================ */
+
+/* Main window background */
+#main-window,
+#navigator-toolbox {
+  background: var(--bg-primary) !important;
+  border: none !important;
+}
+
+/* Remove default borders */
+#navigator-toolbox {
+  border: none !important;
+}
+
+/* ============================
+   TOOLBAR STYLING
+   ============================ */
+
+/* Main toolbar */
+#nav-bar {
+  background: var(--bg-primary) !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 4px 8px !important;
+}
+
+/* Toolbar buttons */
+.toolbarbutton-1 {
+  fill: var(--fg-secondary) !important;
+  color: var(--fg-secondary) !important;
+  border-radius: var(--toolbarbutton-border-radius) !important;
+  padding: 6px !important;
+  margin: 0 2px !important;
+}
+
+.toolbarbutton-1:hover {
+  background: var(--bg-secondary) !important;
+  fill: var(--accent-yellow) !important;
+  color: var(--accent-yellow) !important;
+}
+
+.toolbarbutton-1[open="true"],
+.toolbarbutton-1[checked="true"] {
+  background: var(--bg-secondary) !important;
+  fill: var(--accent-yellow) !important;
+}
+
+/* ============================
+   URL BAR (Address Bar)
+   ============================ */
+
+#urlbar,
+#urlbar-background {
+  background: var(--bg-secondary) !important;
+  border: 2px solid var(--fg-tertiary) !important;
+  border-radius: 8px !important;
+  color: var(--fg-primary) !important;
+  box-shadow: none !important;
+  padding: 4px 8px !important;
+}
+
+#urlbar[focused="true"],
+#urlbar[focused="true"] > #urlbar-background {
+  border-color: var(--accent-yellow) !important;
+  box-shadow: 0 0 0 1px var(--accent-yellow) !important;
+}
+
+/* URL bar text */
+#urlbar-input {
+  color: var(--fg-primary) !important;
+  font-family: 'M PLUS Code Latin', monospace !important;
+  font-weight: 600 !important;
+}
+
+/* URL bar placeholder */
+#urlbar-input::placeholder {
+  color: var(--fg-tertiary) !important;
+  opacity: 1 !important;
+}
+
+/* URL bar dropmarker and icons */
+#urlbar .urlbar-icon,
+#urlbar .urlbar-icon-wrapper {
+  fill: var(--fg-secondary) !important;
+  color: var(--fg-secondary) !important;
+}
+
+#urlbar .urlbar-icon:hover {
+  fill: var(--accent-yellow) !important;
+  background: transparent !important;
+}
+
+/* ============================
+   TABS
+   ============================ */
+
+/* Tab bar */
+#TabsToolbar {
+  background: var(--bg-primary) !important;
+  border: none !important;
+  padding: 0 8px !important;
+}
+
+/* Individual tabs */
+.tabbrowser-tab {
+  border: none !important;
+  border-radius: var(--tab-border-radius) !important;
+  margin: 4px 2px !important;
+  padding: 0 !important;
+  min-height: var(--tab-min-height) !important;
+}
+
+/* Tab background */
+.tab-background {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: var(--tab-border-radius) !important;
+  margin: 0 !important;
+}
+
+.tabbrowser-tab:hover > .tab-stack > .tab-background {
+  background: var(--bg-secondary) !important;
+  border-color: var(--fg-tertiary) !important;
+}
+
+/* Selected tab */
+.tabbrowser-tab[selected="true"] > .tab-stack > .tab-background {
+  background: var(--bg-secondary) !important;
+  border-color: var(--accent-yellow) !important;
+  border-bottom: 2px solid var(--accent-yellow) !important;
+}
+
+/* Tab text */
+.tab-label {
+  color: var(--fg-secondary) !important;
+  font-family: 'M PLUS Code Latin', monospace !important;
+  font-weight: 600 !important;
+}
+
+.tabbrowser-tab:hover > .tab-stack > .tab-content > .tab-label-container > .tab-label {
+  color: var(--fg-primary) !important;
+}
+
+.tabbrowser-tab[selected="true"] > .tab-stack > .tab-content > .tab-label-container > .tab-label {
+  color: var(--accent-yellow) !important;
+}
+
+/* Tab icons */
+.tab-icon-image {
+  opacity: 0.6 !important;
+}
+
+.tabbrowser-tab:hover .tab-icon-image,
+.tabbrowser-tab[selected="true"] .tab-icon-image {
+  opacity: 1 !important;
+}
+
+/* Tab close button */
+.tab-close-button {
+  fill: var(--fg-tertiary) !important;
+  border-radius: 4px !important;
+  padding: 4px !important;
+  margin: 0 4px !important;
+}
+
+.tab-close-button:hover {
+  background: var(--accent-red) !important;
+  fill: var(--bg-primary) !important;
+}
+
+/* New tab button - Custom symbol */
+#tabs-newtab-button,
+#new-tab-button {
+  fill: var(--accent-green) !important;
+  border-radius: var(--toolbarbutton-border-radius) !important;
+  margin: 4px 4px !important;
+}
+
+#tabs-newtab-button:hover,
+#new-tab-button:hover {
+  background: var(--bg-secondary) !important;
+  fill: var(--accent-yellow) !important;
+}
+
+/* Replace + with custom symbol */
+#tabs-newtab-button .toolbarbutton-icon,
+#new-tab-button .toolbarbutton-icon {
+  list-style-image: none !important;
+  -moz-appearance: none !important;
+  width: 16px !important;
+  height: 16px !important;
+}
+
+#tabs-newtab-button::before,
+#new-tab-button::before {
+  content: "+" !important;
+  font-size: 18px !important;
+  font-weight: bold !important;
+  color: var(--accent-green) !important;
+}
+
+#tabs-newtab-button:hover::before,
+#new-tab-button:hover::before {
+  color: var(--accent-yellow) !important;
+}
+
+/* ============================
+   SIDEBAR
+   ============================ */
+
+#sidebar-box {
+  background: var(--bg-primary) !important;
+  border-right: 1px solid var(--fg-tertiary) !important;
+}
+
+#sidebar-header {
+  background: var(--bg-secondary) !important;
+  border-bottom: 1px solid var(--fg-tertiary) !important;
+  color: var(--fg-primary) !important;
+}
+
+#sidebar {
+  background: var(--bg-primary) !important;
+  color: var(--fg-primary) !important;
+}
+
+/* ============================
+   CONTEXT MENUS & PANELS
+   ============================ */
+
+menupopup,
+panel {
+  --panel-background: var(--bg-secondary) !important;
+  --panel-color: var(--fg-primary) !important;
+  --panel-border-color: var(--fg-tertiary) !important;
+  background: var(--bg-secondary) !important;
+  color: var(--fg-primary) !important;
+  border: 1px solid var(--fg-tertiary) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
+}
+
+menuitem,
+menu {
+  color: var(--fg-primary) !important;
+  border-radius: 4px !important;
+  margin: 2px 4px !important;
+}
+
+menuitem:hover,
+menu:hover {
+  background: var(--bg-primary) !important;
+  color: var(--accent-yellow) !important;
+}
+
+menuitem[disabled="true"],
+menu[disabled="true"] {
+  color: var(--fg-tertiary) !important;
+  opacity: 0.5 !important;
+}
+
+menuseparator {
+  border-color: var(--fg-tertiary) !important;
+  margin: 4px 0 !important;
+}
+
+/* ============================
+   SCROLLBARS
+   ============================ */
+
+scrollbar {
+  background: var(--bg-primary) !important;
+}
+
+scrollbar thumb {
+  background: var(--fg-tertiary) !important;
+  border-radius: 8px !important;
+  border: 2px solid var(--bg-primary) !important;
+}
+
+scrollbar thumb:hover {
+  background: var(--fg-secondary) !important;
+}
+
+scrollbar thumb:active {
+  background: var(--accent-yellow) !important;
+}
+
+/* ============================
+   FINDBAR
+   ============================ */
+
+.findbar-textbox {
+  background: var(--bg-secondary) !important;
+  color: var(--fg-primary) !important;
+  border: 1px solid var(--fg-tertiary) !important;
+  border-radius: 6px !important;
+}
+
+.findbar-textbox[focused="true"] {
+  border-color: var(--accent-yellow) !important;
+}
+
+.findbar-button {
+  background: transparent !important;
+  color: var(--fg-secondary) !important;
+  border: none !important;
+}
+
+.findbar-button:hover {
+  background: var(--bg-secondary) !important;
+  color: var(--accent-yellow) !important;
+}
+
+/* ============================
+   BOOKMARKS BAR
+   ============================ */
+
+#PersonalToolbar {
+  background: var(--bg-primary) !important;
+  border-top: 1px solid var(--fg-tertiary) !important;
+  padding: 4px 8px !important;
+}
+
+.bookmark-item {
+  color: var(--fg-secondary) !important;
+  border-radius: var(--toolbarbutton-border-radius) !important;
+  padding: 4px 8px !important;
+  margin: 0 2px !important;
+  font-family: 'M PLUS Code Latin', monospace !important;
+  font-weight: 600 !important;
+}
+
+.bookmark-item:hover {
+  background: var(--bg-secondary) !important;
+  color: var(--accent-yellow) !important;
+}
+
+/* ============================
+   DOWNLOADS BUTTON
+   ============================ */
+
+#downloads-button {
+  fill: var(--fg-secondary) !important;
+}
+
+#downloads-button:hover {
+  fill: var(--accent-cyan) !important;
+}
+
+#downloads-button[attention="success"] {
+  fill: var(--accent-green) !important;
+}
+
+/* ============================
+   EXTENSION BUTTONS
+   ============================ */
+
+.webextension-browser-action {
+  border-radius: var(--toolbarbutton-border-radius) !important;
+}
+
+.webextension-browser-action:hover {
+  background: var(--bg-secondary) !important;
+}
+
+/* ============================
+   PRIVATE BROWSING INDICATOR
+   ============================ */
+
+#private-browsing-indicator-with-label {
+  background: var(--accent-magenta) !important;
+  color: var(--bg-primary) !important;
+  border-radius: 6px !important;
+  padding: 4px 8px !important;
+  font-family: 'M PLUS Code Latin', monospace !important;
+  font-weight: 600 !important;
+}
+
+/* ============================
+   CLEANUP & TWEAKS
+   ============================ */
+
+/* Remove bloat */
+#identity-box,
+#tracking-protection-icon-container {
+  margin: 0 4px !important;
+}
+
+/* Compact mode adjustments */
+:root[uidensity="compact"] {
+  --tab-min-height: 32px !important;
+}
+
+/* Remove tab separator lines */
+.tabbrowser-tab::after,
+.tabbrowser-tab::before {
+  display: none !important;
+}
+
+/* Smooth transitions */
+.tabbrowser-tab,
+.toolbarbutton-1,
+#urlbar,
+menuitem {
+  transition: all 0.2s ease !important;
+}
+
+/* Hide window controls on Linux (optional) */
+/* Uncomment if you want to hide the window controls */
+/*
+.titlebar-buttonbox-container {
+  display: none !important;
+}
+*/

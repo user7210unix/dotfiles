@@ -1,0 +1,55 @@
+import = ["/home/user/.config/alacritty/colors-material.toml"]
+live_config_reload = true
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[cursor]
+style = "Block"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 14.6
+
+[font.bold]
+family = "M PLUS Code Latin"
+style = "Bold"
+
+[font.bold_italic]
+family = "M PLUS Code Latin"
+style = "Bold Italic"
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.italic]
+family = "M PLUS Code Latin"
+style = "Italic"
+
+[font.normal]
+family = "M PLUS Code Latin"
+style = "semiBold"
+
+[mouse]
+hide_when_typing = true
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[selection]
+save_to_clipboard = true
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+
+[shell]
+program = "/usr/bin/zsh"
+
+[window]
+opacity = 1
+
+[window.padding]
+x = 34
+y = 30

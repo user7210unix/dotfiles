@@ -1,0 +1,45 @@
+# Begin ~/.bashrc
+
+if [ -f "/etc/bashrc" ]; then
+   source /etc/bashrc
+fi
+
+NORMAL="\[\e[0m\]"
+GREEN="\[\e[1;32m\]"
+BLUE="\[\e[1;34m\]"
+
+PS1="[ $BLUE\$(date +%H:%M) $NORMAL] $GREEN\w $NORMAL> "
+
+# File operations
+#alias fetch='neofetch'
+alias ls='ls --color=auto'
+#alias tree='exa --long --tree'
+alias c='clear'
+alias grep='grep --color=auto'
+# System
+#alias sudo='doas'
+alias off='poweroff'
+alias ema='emacs -nw'
+alias chrome-de='LANG=de-DE.UTF-8 chromium'
+alias btop='glances'
+alias langde='setxkbmap de'
+alias langus='setxkbmap us'
+alias merge='xrdb ~/.Xresources'
+# Package management
+alias install='sudo apt install -y'
+alias search='sudo apt search'
+alias update='sudo apt update && sudo apt upgrade -y'
+alias remove='sudo apt remove'
+# Git shortcuts
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit -m'
+alias gp='git push'
+alias gl='git pull'
+alias gd='git diff'
+alias gco='git checkout'
+alias clone='git clone --depth 1'
+# Development
+alias py='python3'
+alias pip='pip3'
+alias serve='python3 -m http.server'

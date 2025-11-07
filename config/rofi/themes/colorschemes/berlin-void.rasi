@@ -1,0 +1,32 @@
+/**
+ * ~/.config/rofi/themes/colorschemes/berlin-void.rasi
+ * Berlin Void – High-contrast selection
+ * Selected text: #101012 (deep black) on #ffecb3 (bright yellow)
+ */
+
+* {
+    background:         #101012;
+    background-alpha:   #101012;
+    background-light:   #1a1a1c;
+    background-focus:   #ffecb3;
+
+    foreground:         #ffffff;
+    foreground-list:    #ffffff;
+
+    accent1:            #ffecb3;
+    accent2:            #bfc9db;
+
+    button-gradient:    linear-gradient(90deg, #ffecb3, #ffecb3);
+
+    on:                 #a5d6a7;
+    off:                #858893;
+    urgent:             #cf6679;
+}
+
+/* ———————— Fix: Selected text color ———————— */
+element selected,
+element selected.normal,
+element selected.active,
+element selected.urgent {
+    text-color: #101012;  /* Deep black for max readability */
+}

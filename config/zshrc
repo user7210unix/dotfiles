@@ -1,0 +1,96 @@
+# GENERAL
+# ---
+# System path.
+export PATH="${HOME}/.cargo/bin:${HOME}/.local/bin:${PATH}"
+# Editor
+export EDITOR="emacsclient -t -a ''"
+export VISUAL="emacsclient -c -a emacs"
+# ---
+# Installation directory path.
+export ZSH="${HOME}/.oh-my-zsh"
+# Theme to load.
+#ZSH_THEME='ar-round'
+#ZSH_THEME='eastwood'
+# Highlight styling for zsh-autosuggestions.
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
+# Display red dots whilst waiting for completion.
+COMPLETION_WAITING_DOTS='true'
+# Disable marking untracked files under VCS as dirty.
+DISABLE_UNTRACKED_FILES_DIRTY='true'
+# Disable automatic updates.
+zstyle ':omz:update' mode disabled
+# Plugins to load.
+plugins=(bgnotify git zsh-autosuggestions zsh-completions fast-syntax-highlighting)
+# Always append history.
+setopt INC_APPEND_HISTORY
+# Execute OMZ.
+source "${ZSH}/oh-my-zsh.sh"
+# Speeds up pasting when using zsh-autosuggestions.
+# See "https://github.com/zsh-users/zsh-autosuggestions/issues/238".
+paste_init()
+{
+    OLD_SELF_INSERT="${${(s.:.)widgets[self-insert]}[2,3]}"
+    zle -N self-insert url-quote-magic # I wonder if you'd need ".url-quote-magic"?
+}
+paste_done()
+{
+    zle -N self-insert "$OLD_SELF_INSERT"
+}
+zstyle :bracketed-paste-magic paste-init paste_init
+zstyle :bracketed-paste-magic paste-finish paste_done
+
+# ╔═══════════════════════════════════════════════════════════╗
+# ║                    CUSTOM PROMPT                          ║
+# ╚═══════════════════════════════════════════════════════════╝
+
+# Enable colors and prompt substitution
+autoload -U colors && colors
+setopt PROMPT_SUBST
+
+# ———————————————————————— PROMPT ————————————————————————
+
+# Left prompt
+PROMPT='%{$fg[white]%}%n%{$reset_color%}@%{$fg[blue]%}%m%{$reset_color%} %{$fg[magenta]%}  %~$reset_color$(git_prompt_info) %{$fg[bright-yellow]%}❯%{$reset_color%} '
+
+# Right prompt (current time + exit code)
+RPROMPT='%{$fg[gray]%}%T%{$reset_color%} '
+
+# Enable git prompt
+setopt prompt_subst
+
+# ╔═══════════════════════════════════════════════════════════╗
+# ║                       ALIASES                             ║
+# ╚═══════════════════════════════════════════════════════════╝
+# File operations
+#alias fetch='neofetch'
+alias ls='ls -a --color=auto'
+#alias tree='exa --long --tree'
+alias c='clear'
+alias grep='grep --color=auto'
+# System
+#alias sudo='doas'
+alias off='poweroff'
+alias ema='emacs -nw'
+alias chrome-de='LANG=de-DE.UTF-8 chromium'
+alias btop='glances'
+alias langde='setxkbmap de'
+alias langus='setxkbmap us'
+alias merge='xrdb ~/.Xresources'
+# Package management
+alias install='sudo apt install -y'
+alias search='sudo apt search'
+alias update='sudo apt update && sudo apt upgrade -y'
+alias remove='sudo apt remove'
+# Git shortcuts
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit -m'
+alias gp='git push'
+alias gl='git pull'
+alias gd='git diff'
+alias gco='git checkout'
+alias clone='git clone --depth 1'
+# Development
+alias py='python3'
+alias pip='pip3'
+alias serve='python3 -m http.server'
