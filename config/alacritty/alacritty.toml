@@ -1,0 +1,97 @@
+# Alacritty 2000s Retro Configuration
+
+[window]
+padding.x = 8
+padding.y = 8
+decorations = "Full"
+opacity = 0.95
+title = "Terminal"
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[font]
+size = 12.0
+
+[font.normal]
+family = "Terminus"
+style = "Regular"
+
+[font.bold]
+family = "Terminus"
+style = "Bold"
+
+[font.italic]
+family = "Terminus"
+style = "Italic"
+
+[colors.primary]
+background = "#1a1a1a"
+foreground = "#c0c0c0"
+
+[colors.cursor]
+text = "#1a1a1a"
+cursor = "#00ff00"
+
+[colors.normal]
+black   = "#1a1a1a"
+red     = "#cd5c5c"
+green   = "#00ff00"
+yellow  = "#cdcd00"
+blue    = "#3a5fcd"
+magenta = "#cd00cd"
+cyan    = "#00cdcd"
+white   = "#c0c0c0"
+
+[colors.bright]
+black   = "#666666"
+red     = "#ff6a6a"
+green   = "#00ff00"
+yellow  = "#ffff00"
+blue    = "#4a6fdd"
+magenta = "#ff00ff"
+cyan    = "#00ffff"
+white   = "#ffffff"
+
+[cursor.style]
+shape = "Block"
+blinking = "On"
+
+[cursor]
+blink_interval = 750
+
+[bell]
+animation = "EaseOutExpo"
+duration = 0
+
+[selection]
+save_to_clipboard = true
+
+[mouse]
+hide_when_typing = true
+
+[[keyboard.bindings]]
+key = "V"
+mods = "Control|Shift"
+action = "Paste"
+
+[[keyboard.bindings]]
+key = "C"
+mods = "Control|Shift"
+action = "Copy"
+
+[[keyboard.bindings]]
+key = "Plus"
+mods = "Control"
+action = "IncreaseFontSize"
+
+[[keyboard.bindings]]
+key = "Minus"
+mods = "Control"
+action = "DecreaseFontSize"
+
+[[keyboard.bindings]]
+key = "Key0"
+mods = "Control"
+action = "ResetFontSize"

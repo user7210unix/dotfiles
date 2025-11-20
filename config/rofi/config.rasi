@@ -1,0 +1,176 @@
+/**
+ * Retro 2000s Rofi Theme - Matching Alacritty Style
+ */
+
+* {
+    bg:                 #1a1a1af2;
+    bg-solid:           #1a1a1aff;
+    bg-alt:             #2a2a2af2;
+    bg-selected:        #3a5fcdf2;
+    bg-selected-alt:    #4a6fddf2;
+    
+    fg:                 #c0c0c0ff;
+    fg-alt:             #808080ff;
+    fg-selected:        #ffffffff;
+    fg-bright:          #e0e0e0ff;
+    
+    border:             #3a3a3aff;
+    border-alt:         #4a4a4aff;
+    
+    background-color:   transparent;
+    text-color:         @fg;
+    
+    font: "Terminus Bold 12";
+    
+    margin:             0;
+    padding:            0;
+    spacing:            0;
+}
+
+window {
+    width:              700px;
+    background-color:   @bg;
+    border:             2px solid;
+    border-color:       @border-alt;
+    border-radius:      0px;
+    transparency:       "real";
+}
+
+mainbox {
+    padding:            12px;
+    background-color:   transparent;
+}
+
+inputbar {
+    background-color:   @bg-alt;
+    border:             2px solid;
+    border-color:       @border;
+    padding:            10px 14px;
+    spacing:            10px;
+    children:           [prompt, entry];
+    margin:             0 0 10px 0;
+}
+
+prompt {
+    text-color:         @fg-bright;
+    background-color:   transparent;
+    font:               "Terminus Bold 12";
+}
+
+entry {
+    placeholder:        "Type to search...";
+    placeholder-color:  @fg-alt;
+    text-color:         @fg-bright;
+    background-color:   transparent;
+    cursor:             text;
+}
+
+message {
+    margin:             0 0 10px 0;
+    border:             2px solid;
+    border-color:       @border;
+    background-color:   @bg-alt;
+}
+
+textbox {
+    padding:            10px;
+    text-color:         @fg;
+    background-color:   transparent;
+}
+
+listview {
+    margin:             0;
+    lines:              10;
+    columns:            1;
+    fixed-height:       false;
+    border:             2px solid;
+    border-color:       @border;
+    background-color:   @bg-solid;
+    scrollbar:          true;
+    spacing:            0;
+}
+
+scrollbar {
+    handle-width:       10px;
+    handle-color:       @bg-selected;
+    background-color:   @bg-alt;
+    border:             0;
+    margin:             2px 2px 2px 0;
+}
+
+element {
+    padding:            10px 14px;
+    spacing:            10px;
+    background-color:   transparent;
+    text-color:         @fg;
+}
+
+element normal normal {
+    text-color:         @fg;
+    background-color:   transparent;
+}
+
+element normal active {
+    text-color:         @fg-bright;
+    background-color:   transparent;
+}
+
+element alternate normal {
+    text-color:         @fg;
+    background-color:   #00000020;
+}
+
+element alternate active {
+    text-color:         @fg-bright;
+    background-color:   #00000020;
+}
+
+element selected normal,
+element selected active {
+    background-color:   @bg-selected;
+    text-color:         @fg-selected;
+    border:             0px 0px 0px 4px solid;
+    border-color:       @bg-selected-alt;
+}
+
+element-icon {
+    size:               1.2em;
+    vertical-align:     0.5;
+    background-color:   transparent;
+}
+
+element-text {
+    text-color:         inherit;
+    background-color:   transparent;
+    vertical-align:     0.5;
+    highlight:          bold #4a6fdd;
+}
+
+mode-switcher {
+    margin:             10px 0 0 0;
+    spacing:            10px;
+    background-color:   transparent;
+}
+
+button {
+    padding:            10px 18px;
+    background-color:   @bg-alt;
+    border:             2px solid;
+    border-color:       @border;
+    text-color:         @fg;
+}
+
+button selected {
+    background-color:   @bg-selected;
+    text-color:         @fg-selected;
+    border-color:       @bg-selected-alt;
+    font:               "Terminus Bold 12";
+}
+
+/* Error message styling */
+error-message {
+    padding:            12px;
+    border:             2px solid;
+    border-color:       #cd5c5c;
+    background-color:   @bg-alt;
+}

@@ -1,0 +1,130 @@
+# Retro2000 - A 2000s inspired Blackbox theme
+
+# Toolbar settings
+toolbar: flat gradient vertical
+toolbar.color: #1a1a1a
+toolbar.colorTo: #2a2a2a
+toolbar.borderWidth: 1
+toolbar.borderColor: #3a3a3a
+
+toolbar.label: flat solid
+toolbar.label.color: #2a2a2a
+toolbar.label.textColor: #c0c0c0
+toolbar.label.font: terminus-12:bold
+
+toolbar.windowLabel: flat gradient vertical
+toolbar.windowLabel.color: #1a1a1a
+toolbar.windowLabel.colorTo: #2a2a2a
+toolbar.windowLabel.textColor: #e0e0e0
+toolbar.windowLabel.font: terminus-12
+
+toolbar.clock: flat gradient vertical
+toolbar.clock.color: #1a1a1a
+toolbar.clock.colorTo: #2a2a2a
+toolbar.clock.textColor: #00ff00
+toolbar.clock.font: terminus-12:bold
+
+toolbar.button: flat gradient vertical
+toolbar.button.color: #2a2a2a
+toolbar.button.colorTo: #3a3a3a
+toolbar.button.picColor: #c0c0c0
+toolbar.button.pressed: sunken gradient vertical
+toolbar.button.pressed.color: #1a1a1a
+toolbar.button.pressed.colorTo: #2a2a2a
+
+toolbar.workspace: flat gradient vertical
+toolbar.workspace.color: #2a2a2a
+toolbar.workspace.colorTo: #3a3a3a
+toolbar.workspace.textColor: #c0c0c0
+toolbar.workspace.font: terminus-11
+
+# Menu settings
+menu.title: raised gradient vertical
+menu.title.color: #2a2a2a
+menu.title.colorTo: #3a3a3a
+menu.title.textColor: #e0e0e0
+menu.title.font: terminus-12:bold
+menu.title.justify: center
+
+menu.frame: flat solid
+menu.frame.color: #1a1a1a
+menu.frame.textColor: #c0c0c0
+menu.frame.disableColor: #666666
+menu.frame.font: terminus-11
+menu.frame.justify: left
+
+menu.active: flat gradient vertical
+menu.active.color: #3a5fcd
+menu.active.colorTo: #4a6fdd
+menu.active.textColor: #ffffff
+
+menu.hilite: flat gradient vertical
+menu.hilite.color: #2a4fbd
+menu.hilite.colorTo: #3a5fcd
+menu.hilite.textColor: #ffffff
+
+menu.bullet: triangle
+menu.bullet.position: right
+
+# Window settings
+window.title.focus: raised gradient vertical
+window.title.focus.color: #3a5fcd
+window.title.focus.colorTo: #4a6fdd
+window.title.height: 24
+
+window.title.unfocus: flat gradient vertical
+window.title.unfocus.color: #2a2a2a
+window.title.unfocus.colorTo: #3a3a3a
+
+window.label.focus: flat solid
+window.label.focus.color: #3a5fcd
+window.label.focus.textColor: #ffffff
+window.label.focus.font: terminus-11:bold
+
+window.label.unfocus: flat solid
+window.label.unfocus.color: #2a2a2a
+window.label.unfocus.textColor: #808080
+window.label.unfocus.font: terminus-11
+
+window.button.focus: flat gradient vertical
+window.button.focus.color: #4a6fdd
+window.button.focus.colorTo: #3a5fcd
+window.button.focus.picColor: #ffffff
+
+window.button.unfocus: flat gradient vertical
+window.button.unfocus.color: #3a3a3a
+window.button.unfocus.colorTo: #2a2a2a
+window.button.unfocus.picColor: #808080
+
+window.button.pressed: sunken gradient vertical
+window.button.pressed.color: #2a4fbd
+window.button.pressed.colorTo: #3a5fcd
+
+window.handle.focus: flat gradient vertical
+window.handle.focus.color: #2a4fbd
+window.handle.focus.colorTo: #3a5fcd
+
+window.handle.unfocus: flat gradient vertical
+window.handle.unfocus.color: #2a2a2a
+window.handle.unfocus.colorTo: #3a3a3a
+
+window.grip.focus: flat gradient vertical
+window.grip.focus.color: #3a5fcd
+window.grip.focus.colorTo: #2a4fbd
+
+window.grip.unfocus: flat gradient vertical
+window.grip.unfocus.color: #3a3a3a
+window.grip.unfocus.colorTo: #2a2a2a
+
+window.frame.focusColor: #3a5fcd
+window.frame.unfocusColor: #2a2a2a
+
+# Border settings
+borderColor: #1a1a1a
+borderWidth: 1
+bevelWidth: 2
+handleWidth: 6
+frameWidth: 1
+
+# Root window
+rootCommand: bsetbg -solid "#1a1a1a"

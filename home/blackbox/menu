@@ -1,0 +1,66 @@
+[begin] (Blackbox 0.65)
+  [submenu] (Terminal)
+    [exec] (Alacritty) {alacritty}
+    [exec] (URxvt) {urxvt}
+    [exec] (XTerm) {xterm}
+  [end]
+  
+  [submenu] (Internet)
+    [exec] (LibreWolf) {librewolf}
+    [exec] (Pale Moon) {palemoon}
+    [exec] (Firefox) {firefox}
+  [end]
+  
+  [submenu] (Graphics)
+    [exec] (GIMP) {gimp}
+    [exec] (Inkscape) {inkscape}
+    [exec] (GParted) {gparted-pkexec}
+  [end]
+  
+  [submenu] (Media)
+    [exec] (Audacious) {audacious}
+    [exec] (VLC) {vlc}
+    [exec] (MPV) {mpv}
+  [end]
+  
+  [submenu] (Editors)
+    [exec] (Emacs) {emacs}
+    [exec] (Geany) {geany}
+    [exec] (XEmacs) {xemacs}
+  [end]
+  
+  [submenu] (File Managers)
+    [exec] (Thunar) {thunar}
+    [exec] (PCManFM) {pcmanfm}
+    [exec] (Ranger) {alacritty -e ranger}
+  [end]
+  
+  [submenu] (System)
+    [exec] (GParted) {gparted-pkexec}
+    [exec] (Synaptic) {synaptic-pkexec}
+    [exec] (htop) {alacritty -e htop}
+    [exec] (Task Manager) {xfce4-taskmanager}
+  [end]
+  
+  [submenu] (Utilities)
+    [exec] (Calculator) {gnome-calculator}
+    [exec] (Calendar) {gnome-calendar}
+    [exec] (Screenshot) {~/.scripts/screenshot-screen.sh}
+  [end]
+  
+  [submenu] (Configuration)
+    [exec] (Openbox Config) {obconf}
+    [exec] (Settings Manager) {xfce4-settings-manager}
+    [workspaces] (Workspaces)
+    [config] (Configure)
+    [reconfig] (Reconfigure)
+  [end]
+  
+  [separator]
+  
+  [submenu] (Window)
+    [exec] (Lock Screen) {loginctl --no-ask-password lock-session}
+    [restart] (Restart)
+    [exit] (Exit)
+  [end]
+[end]

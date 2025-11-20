@@ -1,0 +1,197 @@
+# Window borders
+for_window [class="^.*"] border pixel 2
+
+# Mod key (Super/Windows key)
+set $mod Mod4
+
+# STARTUP APPLICATIONS
+exec --no-startup-id picom --config ~/.config/picom/picom.conf
+exec --no-startup-id xrdb -merge ~/.Xresources
+exec_always --no-startup-id setxkbmap -option 
+exec --no-startup-id variety
+exec_always --no-startup-id autotiling
+exec --no-startup-id ~/.fehbg
+exec --no-startup-id xset b off
+exec --no-startup-id dunst
+exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id nm-applet
+
+# FONT
+font pango:Terminus Bold 12
+
+# Use Mouse+$mod to drag floating windows
+floating_modifier $mod
+
+# TERMINAL
+bindsym $mod+Return exec alacritty
+
+# KILL WINDOW
+bindsym $mod+c kill
+
+# FILE MANAGER
+bindsym $mod+e exec thunar
+
+# ROFI LAUNCHERS
+bindsym $mod+d exec --no-startup-id rofi -show drun 
+bindsym $mod+Tab exec --no-startup-id rofi -show window
+bindsym $mod+p exec --no-startup-id ~/.config/rofi/powermenu.sh
+
+# MEDIA KEYS
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+
+# FUNCTION KEY SHORTCUTS
+bindsym F1 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym F2 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym F3 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym F4 exec --no-startup-id brightnessctl set 10%-
+bindsym F5 exec --no-startup-id brightnessctl set +10%
+bindsym F9 exec --no-startup-id amixer set Capture toggle
+bindsym F12 exec scrot ~/Pictures/Screenshots/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png
+
+# FOCUS (VIM KEYS)
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+n focus right
+
+# FOCUS (ARROW KEYS)
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# MOVE FOCUSED WINDOW (VIM KEYS)
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# MOVE FOCUSED WINDOW (ARROW KEYS)
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# FULLSCREEN
+bindsym $mod+f fullscreen toggle
+
+# SPLIT ORIENTATION
+bindsym $mod+z split h;exec notify-send 'tile horizontally'
+bindsym $mod+v split v;exec notify-send 'tile vertically'
+
+# TOGGLE FLOATING
+bindsym $mod+Shift+space floating toggle
+
+# CHANGE FOCUS BETWEEN TILING/FLOATING
+bindsym $mod+space focus mode_toggle
+
+# WORKSPACES
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# SWITCH TO WORKSPACE
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# MOVE CONTAINER TO WORKSPACE
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# RELOAD/RESTART/EXIT
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# RESIZE MODE
+mode "resize" {
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+# LOCK SCREEN
+bindsym $mod+l exec "i3lock-fancy"
+
+# 2000s RETRO COLOR SCHEME
+set $bg              #1a1a1a
+set $bg_alt          #2a2a2a
+set $fg              #c0c0c0
+set $primary         #3a5fcd
+set $primary_bright  #4a6fdd
+set $secondary       #2a4fbd
+set $alert           #cd5c5c
+set $border_inactive #3a3a3a
+set $urgent          #ff6a6a
+
+# WINDOW COLORS
+#                       border              background          text    indicator           child_border
+client.focused          $primary            $primary_bright     #ffffff $primary            $primary
+client.focused_inactive $border_inactive    $bg_alt             $fg     $border_inactive    $border_inactive
+client.unfocused        $border_inactive    $bg                 $fg     $border_inactive    $border_inactive
+client.urgent           $alert              $urgent             #ffffff $alert              $alert
+client.placeholder      $bg                 $bg_alt             $fg     $bg                 $bg_alt
+client.background       $bg
+
+# I3BAR CONFIGURATION
+bar {
+    status_command i3status
+    position bottom
+    tray_output primary
+    separator_symbol " | "
+    workspace_min_width 40
+    
+    font pango:Terminus Bold 11
+    
+    colors {
+        background $bg
+        statusline $fg
+        separator  $border_inactive
+        
+        #                  border              background          text
+        focused_workspace  $primary            $primary_bright     #ffffff
+        active_workspace   $bg_alt             $bg_alt             $fg
+        inactive_workspace $bg                 $bg                 $fg
+        urgent_workspace   $alert              $urgent             #ffffff
+        binding_mode       $secondary          $primary            #ffffff
+    }
+}

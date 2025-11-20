@@ -1,0 +1,81 @@
+general {
+        output_format = "i3bar"
+        colors = true
+        interval = 5
+        color_good = "#00ff00"
+        color_degraded = "#cdcd00"
+        color_bad = "#cd5c5c"
+        separator = " | "
+}
+
+order += "wireless _first_"
+order += "ethernet _first_"
+order += "disk /"
+order += "memory"
+order += "cpu_usage"
+order += "cpu_temperature 0"
+order += "battery all"
+order += "volume master"
+order += "tztime local"
+
+wireless _first_ {
+        format_up = "W: (%quality at %essid) %ip"
+        format_down = "W: down"
+}
+
+ethernet _first_ {
+        format_up = "E: %ip (%speed)"
+        format_down = "E: down"
+}
+
+disk "/" {
+        format = "DISK: %avail"
+        prefix_type = custom
+        low_threshold = 10
+        threshold_type = percentage_avail
+}
+
+memory {
+        format = "RAM: %used / %total"
+        threshold_degraded = "20%"
+        threshold_critical = "10%"
+        format_degraded = "RAM: %used / %total"
+}
+
+cpu_usage {
+        format = "CPU: %usage"
+        max_threshold = 75
+        degraded_threshold = 50
+}
+
+cpu_temperature 0 {
+        format = "T: %degrees°C"
+        max_threshold = 75
+        path = "/sys/class/thermal/thermal_zone0/temp"
+}
+
+battery all {
+        format = "%status %percentage %remaining"
+        format_down = "No battery"
+        status_chr = "⚡ CHR"
+        status_bat = "🔋 BAT"
+        status_unk = "? UNK"
+        status_full = "☻ FULL"
+        path = "/sys/class/power_supply/BAT%d/uevent"
+        low_threshold = 15
+        threshold_type = percentage
+        integer_battery_capacity = true
+        last_full_capacity = true
+}
+
+volume master {
+        format = "♪: %volume"
+        format_muted = "♪: muted (%volume)"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+}
+
+tztime local {
+        format = "%a %d %b %Y %I:%M:%S %p"
+}

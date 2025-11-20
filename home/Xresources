@@ -1,0 +1,48 @@
+! Xresources - 2000s Retro Terminal Configuration
+
+! URxvt settings
+URxvt.font: xft:Terminus:size=12
+URxvt.boldFont: xft:Terminus:bold:size=12
+URxvt.scrollBar: false
+URxvt.cursorBlink: true
+URxvt.cursorColor: #00ff00
+URxvt.letterSpace: 0
+URxvt.internalBorder: 8
+
+! URxvt colors
+URxvt.background: #1a1a1a
+URxvt.foreground: #c0c0c0
+
+URxvt.color0:  #1a1a1a
+URxvt.color1:  #cd5c5c
+URxvt.color2:  #00ff00
+URxvt.color3:  #cdcd00
+URxvt.color4:  #3a5fcd
+URxvt.color5:  #cd00cd
+URxvt.color6:  #00cdcd
+URxvt.color7:  #c0c0c0
+
+URxvt.color8:  #666666
+URxvt.color9:  #ff6a6a
+URxvt.color10: #00ff00
+URxvt.color11: #ffff00
+URxvt.color12: #4a6fdd
+URxvt.color13: #ff00ff
+URxvt.color14: #00ffff
+URxvt.color15: #ffffff
+
+! XTerm settings
+XTerm*faceName: Terminus:size=12
+XTerm*background: #1a1a1a
+XTerm*foreground: #c0c0c0
+XTerm*cursorColor: #00ff00
+XTerm*borderWidth: 0
+XTerm*internalBorder: 8
+
+! Xft settings
+Xft.dpi: 96
+Xft.antialias: true
+Xft.rgba: rgb
+Xft.hinting: true
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcddefault
