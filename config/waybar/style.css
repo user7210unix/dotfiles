@@ -1,0 +1,61 @@
+* {
+    font-family: "M PLUS Code Latin", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+}
+
+window#waybar {
+    background: #000000;
+    color: #ffffff;
+    border-bottom: 2px solid #1a1a1a;
+}
+
+#workspaces button {
+    padding: 0 12px;
+    color: #888888;
+    background: transparent;
+}
+
+#workspaces button.active {
+    color: #ffffff;
+    background: #1a1a1a;
+}
+
+#workspaces button.focused {
+    color: #ffffff;
+    background: #1a1a1a;
+}
+
+#workspaces button.urgent {
+    color: #ff5555;
+}
+
+#cpu, #memory, #network, #battery, #clock {
+    padding: 0 14px;
+    color: #bbbbbb;
+    background: #0d0d0d;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+#cpu {
+    margin-left: 8px;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+#clock {
+    margin-right: 8px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+/* Slight hover effect (optional) */
+#cpu:hover, #memory:hover, #network:hover, #battery:hover, #clock:hover {
+    background: #1a1a1a;
+}
