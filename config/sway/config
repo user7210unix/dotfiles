@@ -1,0 +1,112 @@
+# Monitors
+# 135 DPI = 135 ÷ 96 = 1.40625× scaling
+output eDP-1 scale 1.40625
+# optional: make fonts a tiny bit crisper (linear looks best with fractional scaling)
+output eDP-1 scale_filter linear
+# Autostart
+exec mako 
+exec nm-applet
+exec swaybg -i ~/.wallpapers/winter.png -m fill
+exec waybar
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+seat seat0 xcursor_theme Volantes-Cursors 32 
+
+# Look and feel
+gaps inner 6
+gaps outer 13
+smart_gaps off
+default_border pixel 3
+client.focused #83a598 #83a598 #ffffff #a1b8a3 #83a598
+client.unfocused #323232 #323232 #cccccc #423e3b #323232
+client.focused_inactive #323232 #323232 #cccccc #423e3b #323232
+client.urgent #fb4934 #fb4934 #ffffff #fb4934 #fb4934
+
+# Input
+input * {
+    xkb_layout us
+}
+input type:touchpad {
+    natural_scroll disable
+}
+focus_follows_mouse yes
+
+# Keybindings
+set $mod Mod4
+
+# Main keybindings
+bindsym $mod+Return exec alacritty
+bindsym $mod+c kill
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+d exec wofi --show drun
+bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+e exec ~/.config/sway/scripts/power.sh
+bindsym $mod+l exec swaylock
+bindsym $mod+x exec ~/.config/sway/scripts/kill.sh
+
+# Move focus
+bindsym $mod+Left focus left
+bindsym $mod+Right focus right
+bindsym $mod+Up focus up
+bindsym $mod+Down focus down
+
+# Move windows
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Down move down
+
+# Resize windows
+bindsym $mod+Alt+Left resize shrink width 10 px
+bindsym $mod+Alt+Right resize grow width 10 px
+bindsym $mod+Alt+Up resize shrink height 10 px
+bindsym $mod+Alt+Down resize grow height 10 px
+
+# Workspaces
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+# Move to workspaces
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+
+# Scratchpad
+bindsym $mod+minus scratchpad show
+bindsym $mod+Shift+minus move container to scratchpad
+
+# Mouse bindings
+bindsym --whole-window $mod+button1 move
+bindsym --border --whole-window $mod+button3 resize
+
+# Multimedia keys
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym --locked XF86MonBrightnessUp exec brightnessctl s 5%+
+bindsym --locked XF86MonBrightnessDown exec brightnessctl s 5%-
+bindsym --locked XF86AudioNext exec playerctl next
+bindsym --locked XF86AudioPause exec playerctl play-pause
+bindsym --locked XF86AudioPlay exec playerctl play-pause
+bindsym --locked XF86AudioPrev exec playerctl previous
+
+# Window rules
+for_window [title="^Authentication required$"] floating enable
+for_window [title="^(Picture-in-Picture)$"] floating enable, resize set 30 ppt 30 ppt, move position 70 ppt 70 ppt
+for_window [title="^(Picture in picture)$"] floating enable, resize set 30 ppt 30 ppt, move position 70 ppt 70 ppt

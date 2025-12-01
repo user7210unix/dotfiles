@@ -1,0 +1,118 @@
+// ~/.config/waybar/config
+{
+    "layer": "top",
+    "position": "top",
+    "height": 36,
+    "spacing": 4,
+
+    "modules-left": [
+        "custom/launcher",
+        "sway/workspaces",
+        "cpu",
+        "memory"
+    ],
+    "modules-center": [
+        "sway/window"
+    ],
+    "modules-right": [
+        "tray",
+        "network#speed",
+        "wireplumber",
+        "network",
+        "backlight",
+        "clock",
+        "battery",
+        "custom/power"
+    ],
+
+    // === Modules ===
+
+    "custom/launcher": {
+        "format": " 󰍜 ",
+        "tooltip": false,
+        "on-click": "wofi --show drun"
+    },
+
+    "custom/power": {
+        "format": "  ",
+        "tooltip": false,
+        "on-click": "~/.config/wofi/scripts/power.sh"
+    },
+
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{name}"
+    },
+
+    "sway/window": {
+        "format": "{}",
+        "max-length": 80,
+        "separate-outputs": true
+    },
+
+    "cpu": {
+        "interval": 1,
+        "format": "CPU {usage:>2}% {icon0}{icon1}{icon2}{icon3}",
+        "format-icons": ["▁","▂","▃","▄","▅","▆","▇","█"],
+        "on-click": "kitty -e btop"
+    },
+
+    "memory": {
+        "interval": 30,
+        "format": "MEM {used:0.1f}G/{total:0.1f}G"
+    },
+
+    "network#speed": {
+        "interface": "wlp4s0",               // change to your wifi interface if you want (e.g. wlp3s0)
+        "interval": 1,
+        "format": "{ifname}",
+        "format-wifi": " {bandwidthDownBytes}  {bandwidthUpBytes}",
+        "format-ethernet": " {bandwidthDownBytes}  {bandwidthUpBytes}",
+        "tooltip": false
+    },
+
+    "network": {
+        "format": "󰤭",
+        "format-wifi": " ",
+        "format-ethernet": "󰈀 ",
+        "format-disconnected": "⚠ Disconnected",
+        "tooltip-format": "{ifname} · {ipaddr}",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) · {ipaddr}",
+        "on-click": "networkmanager_dmenu"
+    },
+
+    "wireplumber": {
+        "scroll-step": 5,
+        "format": "{volume}% {icon}",
+        "format-muted": "Muted ",
+        "format-bluetooth": "{volume}% ",
+        "on-click": "pavucontrol",
+        "format-icons": ["", "", ""]
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{percent}% "
+    },
+
+    "battery": {
+        "bat": "BAT1",
+        "states": { "warning": 30, "critical": 15 },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% 󰂄",
+        "format-plugged": "{capacity}% 󱟦",
+        "format-icons": ["󰂎","󰁺","󰁻","󰁼","󰁽","󰁾","󰂀","󰂁","󰁹"]
+    },
+
+    "clock": {
+        "format": "{:%H:%M} ",
+        "format-alt": "{:%Y-%m-%d %A}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>"
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8
+    }
+}
