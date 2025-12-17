@@ -1,0 +1,113 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 28,
+  "margin-top": 0,
+  "margin-left": 0,
+  "margin-right": 0,
+  "spacing": 10,
+
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+
+  /*"modules-center": [
+   "clock"
+  ],
+  */
+
+  "modules-right": [
+    "cpu",
+    "memory",
+    "temperature",
+    "pulseaudio",
+    "network",
+    "battery",
+    "clock"
+    // "tray"
+  ],
+
+  // ─────────────────────────────
+  // WORKSPACES
+  // ─────────────────────────────
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "format": "{icon}",
+    "format-icons": {
+      "default": "󰄯",
+      "active": "󱡓",
+      "urgent": ""
+    }
+  },
+
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 60,
+    "separate-outputs": true
+  },
+
+  // ─────────────────────────────
+  // CLOCK + FULL CALENDAR TOOLTIP
+  // ─────────────────────────────
+  "clock": {
+    "format": "  {:%H:%M}",
+    "format-alt": "  {:%A, %d %B %Y}",
+    "tooltip-format": "<big>{:%B %Y}</big>\n<tt>{calendar}</tt>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#6F9EA4'><b>{}</b></span>",
+        "days": "<span color='#E8DCC4'>{}</span>",
+        "weeks": "<span color='#7BA8AE'>W{}</span>",
+        "weekdays": "<span color='#8DB5BB'>{}</span>",
+        "today": "<span color='#325E64'><b><u>{}</u></b></span>"
+      }
+    }
+  },
+
+  // ─────────────────────────────
+  // SYSTEM MODULES
+  // ─────────────────────────────
+  "cpu": {
+    "interval": 3,
+    "format": "  {usage}%",
+    "tooltip": true
+  },
+
+  "memory": {
+    "interval": 3,
+    "format": "  {used:0.1f}G"
+  },
+
+  "temperature": {
+    "critical-threshold": 80,
+    "format": "  {temperatureC}°C"
+  },
+
+  "pulseaudio": {
+    "format": "  {volume}%",
+    "format-muted": "󰝟  muted",
+    "scroll-step": 5
+  },
+
+  "network": {
+    "format-wifi": "  {signalStrength}%",
+    "format-ethernet": "󰈀  wired",
+    "format-disconnected": "󰖪  offline",
+    "tooltip-format": "{ifname}\n{ipaddr}"
+  },
+
+  "battery": {
+    "format": "{icon}  {capacity}%",
+    "format-icons": ["", "", "", "", ""]
+  },
+
+  "tray": {
+    "spacing": 6
+  }
+}

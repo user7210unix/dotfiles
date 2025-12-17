@@ -1,0 +1,8 @@
+width=600
+height=400
+location=center
+layer=overlay
+prompt=Launch
+allow_markup=true
+gtk_dark=false  # Light theme base
+insensitive=true  # Blur behind for wallpaper visibility

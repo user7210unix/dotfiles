@@ -1,0 +1,102 @@
+/* ─────────────────────────────
+   GLOBAL
+   ───────────────────────────── */
+
+* {
+    font-family: "M PLUS CODE Latin semiBold", "JetBrainsMono Nerd Font";
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(24, 22, 22, 0.70); ; /* dark grey 70% opacity */
+    color:  	#fff0db;      /* warm beige */
+    border: 0px solid #325E64;
+}
+
+/* ─────────────────────────────
+   MODULE BLOCKS
+   ───────────────────────────── */
+
+#workspaces,
+#window,
+#clock,
+#cpu,
+#memory,
+#temperature,
+#pulseaudio,
+#network,
+#battery,
+#tray {
+    padding: 0 10px;
+    margin: 4px 0;
+}
+
+/* ─────────────────────────────
+   WORKSPACES
+   ───────────────────────────── */
+
+#workspaces button {
+    padding: 0 6px;
+    color: #6F9EA4;
+    background: transparent;
+    border: none;
+}
+
+#workspaces button.active {
+    color: #E8DCC4;
+}
+
+#workspaces button.urgent {
+    color: #442E12;
+}
+
+/* ─────────────────────────────
+   WINDOW TITLE
+   ───────────────────────────── */
+
+#window {
+    color: #fff0db;
+}
+
+/* ─────────────────────────────
+   CLOCK
+   ───────────────────────────── */
+
+#clock {
+    font-weight: 600;
+    color: #fff0db;
+}
+
+/* Tooltip (calendar) */
+tooltip {
+    background: #0B1C22;
+    border: 1px solid #325E64;
+    color: #fff0db;
+}
+
+tooltip label {
+    padding: 6px;
+}
+
+/* ─────────────────────────────
+   SYSTEM ICON COLORING
+   ───────────────────────────── */
+
+#cpu,
+#memory,
+#temperature,
+#pulseaudio,
+#network,
+#battery {
+    color: #fff0db;
+}
+
+/* Muted / warnings */
+#pulseaudio.muted {
+    color: #3A2812;
+}
+
+#temperature.critical {
+    color: #442E12;
+}

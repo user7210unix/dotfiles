@@ -1,0 +1,64 @@
+/* Root window: semi-transparent light bg to blend with wallpaper */
+window {
+    margin: 0;
+    padding: 0;
+    border: 1px solid rgba(34, 34, 34, 0.1);  /* Subtle dark outline */
+    background-color: rgba(225, 204, 178, 0.85);  /* #E1CCB2 at 85% opacity */
+    font-family: "M PLUS Code Latin", "JetBrainsMono Nerd Font";
+    font-size: 13px;
+    font-weight: 600;
+    color: #222222;  /* Dark text everywhere */
+    border-radius: 8px;  /* Soft corners to match modern feel */
+    box-shadow: 0 4px 12px rgba(34, 34, 34, 0.1);  /* Lite offset shadow like your windows */
+}
+
+/* Search input: focused, minimal */
+#input {
+    margin: 8px;
+    padding: 8px 12px;
+    border: none;
+    background-color: rgba(225, 204, 178, 0.95);  /* Slightly less transparent */
+    color: #222222;
+    border-radius: 4px;
+}
+
+#input:focus {
+    outline: none;
+    background-color: #E1CCB2;  /* Full opacity on focus */
+}
+
+/* Entries: clean list items */
+#entry {
+    padding: 8px 12px;
+    margin: 2px 8px;
+    border: none;
+    border-radius: 4px;
+    background-color: transparent;
+    color: #222222;
+}
+
+#entry:selected {
+    background-color: rgba(34, 34, 34, 0.15);  /* Subtle dark hover */
+    color: #222222;
+    border-radius: 4px;
+}
+
+/* Scrollbar: hidden unless needed */
+#scroll {
+    margin: 0;
+    border: none;
+}
+
+/* Inner/outer boxes: no extra bg */
+#inner-box, #outer-box {
+    margin: 0;
+    border: none;
+    background-color: transparent;
+}
+
+/* Text/icons: consistent dark */
+#text {
+    margin: 0;
+    padding: 0;
+    color: #222222;
+}
