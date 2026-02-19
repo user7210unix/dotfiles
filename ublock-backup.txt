@@ -1,0 +1,58 @@
+{
+  "timeStamp": 1771500188343,
+  "version": "1.69.0",
+  "userSettings": {
+    "externalLists": "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/AdRemovalListForUnusualAds.txt\nhttps://raw.githubusercontent.com/DandelionSprout/adfilt/master/AnnoyancesList\nhttps://raw.githubusercontent.com/bogachenko/fuckfuckadblock/master/fuckfuckadblock.txt\nhttps://raw.githubusercontent.com/mchangrh/yt-neuter/main/filters/misc.txt\nhttps://raw.githubusercontent.com/mchangrh/yt-neuter/main/filters/noshorts.txt\nhttps://raw.githubusercontent.com/mchangrh/yt-neuter/main/yt-neuter.txt\nhttps://raw.githubusercontent.com/r4vi/block-the-eu-cookie-shit-list/master/filterlist.txt\nhttps://raw.githubusercontent.com/yourduskquibbles/webannoyances/master/filters/generic_filters.txt",
+    "importedLists": [
+      "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/AdRemovalListForUnusualAds.txt",
+      "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/AnnoyancesList",
+      "https://raw.githubusercontent.com/bogachenko/fuckfuckadblock/master/fuckfuckadblock.txt",
+      "https://raw.githubusercontent.com/mchangrh/yt-neuter/main/filters/misc.txt",
+      "https://raw.githubusercontent.com/mchangrh/yt-neuter/main/filters/noshorts.txt",
+      "https://raw.githubusercontent.com/mchangrh/yt-neuter/main/yt-neuter.txt",
+      "https://raw.githubusercontent.com/r4vi/block-the-eu-cookie-shit-list/master/filterlist.txt",
+      "https://raw.githubusercontent.com/yourduskquibbles/webannoyances/master/filters/generic_filters.txt"
+    ]
+  },
+  "selectedFilterLists": [
+    "user-filters",
+    "ublock-filters",
+    "ublock-badware",
+    "ublock-privacy",
+    "ublock-quick-fixes",
+    "ublock-unbreak",
+    "easylist",
+    "easyprivacy",
+    "urlhaus-1",
+    "plowe-0",
+    "fanboy-cookiemonster",
+    "ublock-cookies-easylist",
+    "fanboy-social",
+    "fanboy-ai-suggestions",
+    "easylist-chat",
+    "easylist-newsletters",
+    "easylist-notifications",
+    "easylist-annoyances",
+    "DEU-0",
+    "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/AdRemovalListForUnusualAds.txt",
+    "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/AnnoyancesList",
+    "https://raw.githubusercontent.com/r4vi/block-the-eu-cookie-shit-list/master/filterlist.txt",
+    "https://raw.githubusercontent.com/bogachenko/fuckfuckadblock/master/fuckfuckadblock.txt",
+    "https://raw.githubusercontent.com/yourduskquibbles/webannoyances/master/filters/generic_filters.txt",
+    "https://raw.githubusercontent.com/mchangrh/yt-neuter/main/yt-neuter.txt",
+    "https://raw.githubusercontent.com/mchangrh/yt-neuter/main/filters/noshorts.txt",
+    "https://raw.githubusercontent.com/mchangrh/yt-neuter/main/filters/misc.txt"
+  ],
+  "hiddenSettings": {},
+  "whitelist": [
+    "chrome-extension-scheme",
+    "claude.ai",
+    "moz-extension-scheme",
+    "nobaraproject.org",
+    "www.google.com"
+  ],
+  "dynamicFilteringString": "behind-the-scene * * noop\nbehind-the-scene * inline-script noop\nbehind-the-scene * 1p-script noop\nbehind-the-scene * 3p-script noop\nbehind-the-scene * 3p-frame noop\nbehind-the-scene * image noop\nbehind-the-scene * 3p noop",
+  "urlFilteringString": "",
+  "hostnameSwitchesString": "no-large-media: behind-the-scene false\nno-csp-reports: * true",
+  "userFilters": "! 08.01.2026 \n||accounts.google.com/gsi/*$xhr,script,3p\n\n! Reddit hover/user preview popups (very common complaint)\nwww.reddit.com##[id$=\"hover-id\"]\nwww.reddit.com##[id*=\"hover-container\"]\nwww.reddit.com##.overlay-hint\n\n! Hide promoted posts / ads in feed (may need occasional updates)\nwww.reddit.com##.promotedlink\nwww.reddit.com##.promoted\nwww.reddit.com##div[data-testid=\"post-container\"]:has([data-click-id=\"promoted\"])\n\n! Old / residual annoyances (RPan, top broadcasts, email/signup prompts)\nwww.reddit.com##.scrollerItem:has(a[href*=\"/rpan/\"])\nwww.reddit.com##.scrollerItem:has-text(Top broadcast right now)\nwww.reddit.com##.login-signup-banner\nwww.reddit.com##[data-testid=\"signup-bar\"]\nwww.reddit.com##._12Ewyh01Y1cMPB3Ri_F1C4\nwww.reddit.com##._25n1vjWrHyVcdDkuLwR2Y-\n\n! Hide some recommendation / community discovery boxes\nwww.reddit.com##.community-discovery\nwww.reddit.com##[data-testid=\"recommendations-section\"]\n\n!__________________________ Google & Youtube Ads __________________________\n# Zero Ads in Youtube Videos | No watermarks, Cards, Info. Nothing! Zilch! Nada!\n||youtube.com/annotations_\nyoutube.com##.ytp-ce-element-show\nyoutube.com##.ytp-ce-element\nyoutube.com##.ytp-cards-teaser-text\nyoutube.com##.ytp-cards-button-icon-default\nyoutube.com##.annotation-type-text.annotation\nyoutube.com##.ytp-scroll-min.ytp-pause-overlay\nyoutube.com###offer-module > .ytd-watch.style-scope\nyoutube.com##.annotation-type-text.annotation-popup-shape.annotation-shape\nyoutube.com##.annotation-type-text.annotation-speech-shape.annotation-shape\nyoutube.com##.annotation-type-text.annotation-popup-shape.annotation-shape:nth-of-type(3)\nyoutube.com##.annotation-type-text.annotation-popup-shape.annotation-shape:nth-of-type(7)\nyoutube.com##.annotation-type-text.annotation-popup-shape.annotation-shape:nth-of-type(5)\nyoutube.com##.branding-img-container\n/endscreen.js$script,domain=www.youtube.com\nyoutube.com/annotations_\nm.youtube.com##ytm-item-section-renderer.scwnr-content:nth-of-type(1) > lazy-list > .item\nyoutube.com###chat\n\n! Hide Live Chat AI Summary\nwww.youtube.com###live-chat-banner > .yt-live-chat-banner-manager.style-scope:has-text(/Chat summary/i)\n\n! Hide \"Enhanced Bitrate\" quality option at the top within the settings gear icon sub-menu:\nyoutube.com##.ytp-quality-menu.ytp-panel > .ytp-panel-menu > div.ytp-menuitem:has-text(/Enhanced bitrate/i)\n\n! Hide Youtube Playables from the Youtube Home feed\nyoutube.com##ytd-rich-section-renderer.ytd-rich-grid-renderer.style-scope:nth-of-type(1):has-text(/Playables/i)\nyoutube.com##ytd-rich-section-renderer.yte-hide-shorts.ytd-rich-grid-renderer.style-scope:nth-of-type(2):has-text(/Playables/i)\n\n\n# generic sponsored content eliminator\n~google.com##div.result[id*=\"sponsored\"]\n\n! Hide all videos containing the phrase \"#shorts\"\nwww.youtube.com##ytd-grid-video-renderer:has(#video-title:has-text(/(^| )#Shorts?( |$)/i))\nwww.youtube.com##ytd-rich-item-renderer:has(#video-title:has-text(/(^| )#Shorts?( |$)/i))\n\n! Hide all videos with the shorts indicator on the thumbnail\nwww.youtube.com##ytd-grid-video-renderer:has([overlay-style=\"SHORTS\"])\nwww.youtube.com##ytd-rich-item-renderer:has([overlay-style=\"SHORTS\"])\nwww.youtube.com##ytd-video-renderer:has([overlay-style=\"SHORTS\"])\nwww.youtube.com##ytd-item-section-renderer.ytd-section-list-renderer[page-subtype=\"subscriptions\"]:has(ytd-video-renderer:has([overlay-style=\"SHORTS\"]))\n\n! Hide shorts button in sidebar\nwww.youtube.com##ytd-guide-entry-renderer:has(yt-formatted-string:has-text(/^Shorts$/i))\n! Tablet resolution\nwww.youtube.com##ytd-mini-guide-entry-renderer:has(.title:has-text(/^Shorts$/i))\n\n! Hide shorts sections except on history page\nwww.youtube.com##:matches-path(/^(?!\\/feed\\/history).*$/)ytd-rich-section-renderer:has(#title:has-text(/(^| )Shorts( |$)/i))\nwww.youtube.com##:matches-path(/^(?!\\/feed\\/history).*$/)ytd-reel-shelf-renderer:has(.ytd-reel-shelf-renderer:has-text(/(^| )Shorts( |$)/i))\n\n! Hide shorts tab on channel pages`\n! Old style\nwww.youtube.com##tp-yt-paper-tab:has(.tp-yt-paper-tab:has-text(Shorts))\n! New style (2023-10)\nwww.youtube.com##yt-tab-shape:has-text(/^Shorts$/)\n\n! Hide short remixes in video descriptions and in suggestions beside the comments\nwww.youtube.com##ytd-reel-shelf-renderer:has(#title:has-text(/(^| )Shorts.?Remix.*$/i))\n\n! Hide shorts category on homepage and search pages\nwww.youtube.com##yt-chip-cloud-chip-renderer:has(yt-formatted-string:has-text(/^Shorts$/i))\n\n! Hide shorts sections on search page\nwww.youtube.com##.shelf-header-layout-wiz__title:has-text(/(^| )Shorts( |$)/i):upward(grid-shelf-view-model)\nwww.youtube.com##.yt-shelf-header-layout__title:has-text(/(^| )Shorts( |$)/i):upward(grid-shelf-view-model)\n\n\n\n! 03.02.2026 https://stackoverflow.com\nstackoverflow.com##.p0.s-sidebarwidget__items.s-sidebarwidget--content\nstackoverflow.com##.js-sticky-leftnav.left-sidebar--sticky-container\nstackoverflow.com##.js-gps-track.js-signup-button.ws-nowrap.s-btn__filled.s-btn.ml4.s-topbar--item__unset.s-topbar--item\nstackoverflow.com##.js-gps-track.ws-nowrap.s-btn__outlined.s-btn.s-topbar--item__unset.s-topbar--item\n\n! 11.02.2026 https://old.reddit.com\nold.reddit.com##.listingsignupbar.infobar\nold.reddit.com###header-bottom-right\n\n! 17.02.2026 https://old.reddit.com\nold.reddit.com##.side\nold.reddit.com###sr-header-area\n||www.redditstatic.com/desktop2x/img/favicon/apple-icon-57x57.png$image\nold.reddit.com###thing_t3_ekvfvw > .unvoted.midcol\n\n! 17.02.2026 https://www.google.com\nwww.google.com###ugf-username-button > .ugf-plus-button-text > span\nwww.google.com###ugf-navbar-right > .ugf-parse-item.ugf-adaptive-button-style.ugf-button\nwww.google.com###ugf-non-personal-button\nwww.google.com##.ugf-parse-item.ugf-button-active.ugf-adaptive-button-style.ugf-button"
+}
