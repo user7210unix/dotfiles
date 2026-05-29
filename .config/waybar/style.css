@@ -1,0 +1,111 @@
+/* Waybar — Catppuccin Macchiato · minimal underline style */
+
+@define-color mantle   #1e2030;
+@define-color surface0 #363a4f;
+@define-color surface1 #494d64;
+@define-color overlay0 #6e738d;
+@define-color overlay1 #8087a2;
+@define-color subtext0 #a5adcb;
+@define-color text     #cad3f5;
+@define-color mauve    #c6a0f6;
+@define-color red      #ed8796;
+@define-color yellow   #eed49f;
+@define-color lavender #b7bdf8;
+
+* {
+    border:        none;
+    border-radius: 0;
+    font-family:   "JetBrainsMono Nerd Font", "JetBrains Mono", monospace;
+    font-size:     13px;
+    font-weight:   400;
+    min-height:    0;
+    padding:       0;
+    margin:        0;
+}
+
+window#waybar {
+    background-color: @mantle;
+    color:            @text;
+    border-bottom:    1px solid @surface0;
+}
+
+window#waybar.hidden { opacity: 0.2; }
+
+/* ── Workspaces ── */
+#workspaces {
+    padding: 0 6px;
+}
+
+#workspaces button {
+    padding:       0 7px;
+    margin:        0;
+    background:    transparent;
+    color:         @overlay0;
+    border-bottom: 2px solid transparent;
+}
+
+#workspaces button:hover {
+    background:    transparent;
+    color:         @text;
+    box-shadow:    none;
+}
+
+#workspaces button.focused {
+    color:         @mauve;
+    border-bottom: 2px solid @mauve;
+}
+
+#workspaces button.urgent {
+    color:         @red;
+    border-bottom: 2px solid @red;
+}
+
+/* ── Window title ── */
+#window {
+    padding: 0 10px;
+    color:   @subtext0;
+}
+
+/* ── Clock ── */
+#clock {
+    padding:     0 12px;
+    color:       @lavender;
+    font-weight: 600;
+}
+
+/* ── Right modules ── */
+#custom-kernel,
+#memory,
+#pulseaudio {
+    padding:       0 10px;
+    color:         @subtext0;
+    border-bottom: 2px solid @surface1;
+}
+
+#custom-kernel { border-color: @lavender; }
+#memory        { border-color: @lavender; }
+#pulseaudio    { border-color: @lavender; }
+
+#memory.warning  { color: @yellow; border-color: @yellow; }
+#memory.critical { color: @red;    border-color: @red;    }
+
+#pulseaudio.muted { color: @overlay0; border-color: @surface1; }
+
+/* ── Tray ── */
+#tray { padding: 0 8px; }
+
+/* ── Blink ── */
+@keyframes blink {
+    to { color: @mantle; background-color: @red; }
+}
+
+/* ── Tooltip ── */
+tooltip {
+    background: @surface0;
+    border:     1px solid @surface1;
+}
+
+tooltip label {
+    color:   @text;
+    padding: 4px 8px;
+}

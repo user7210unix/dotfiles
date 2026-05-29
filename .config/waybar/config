@@ -1,0 +1,87 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 32,
+    "spacing": 0,
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+
+    "modules-left": [
+        "sway/workspaces",
+        "sway/window"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "custom/kernel",
+        "memory",
+        "cpu",
+        "pulseaudio",
+        "tray"
+    ],
+
+    "sway/workspaces": {
+        "disable-scroll": false,
+        "all-outputs": false,
+        "format": "{name}",
+        "persistent_workspaces": {
+            "1": [], "2": [], "3": [], "4": [], "5": [],
+            "6": [], "7": [], "8": [], "9": []
+        }
+    },
+
+    "sway/window": {
+        "format": "  {}",
+        "max-length": 60,
+        "rewrite": {
+            "(.*) — Mozilla Firefox": "$1",
+            "(.*) - NVIM":            "nvim: $1",
+            "(.*)":                   "$1"
+        }
+    },
+
+    "clock": {
+        "timezone": "Europe/Berlin",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format":     "{:%a %d %b  %H:%M}",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+
+    "custom/kernel": {
+        "exec": "uname -r | sed 's/-artix1-1//' | sed 's/-arch[0-9]*//'",
+        "interval": 3600,
+        "format": "kernel: {}",
+        "tooltip": false
+    },
+
+    "memory": {
+        "interval": 3,
+        "format": "ram: {used:0.1f}G / {total:0.1f}G",
+        "format-alt": "ram: {percentage}%",
+        "tooltip-format": "used: {used:0.1f} GiB\ntotal: {total:0.1f} GiB\nswap: {swapUsed:0.1f} GiB",
+        "warning": 70,
+        "critical": 90
+    },
+
+    "cpu": {
+        "interval": 3,
+        "format": "cpu: {usage}%",
+        "tooltip-format": "cpu: {usage}%\nfreq: {avg_frequency} GHz"
+    },
+
+    "pulseaudio": {
+        "format": "vol: {volume}%",
+        "format-muted": "vol: muted",
+        "format-bluetooth": "bt: {volume}%",
+        "format-icons": {},
+        "on-click": "pavucontrol",
+        "tooltip-format": "{desc}"
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8
+    }
+}

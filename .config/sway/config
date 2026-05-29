@@ -1,0 +1,278 @@
+set $mod Mod4
+set $left  h
+set $down  j
+set $up    k
+set $right l
+
+set $term      alacritty
+set $menu      rofi -show drun
+set $browser   firefox
+set $filemanager  alacritty -e lf
+
+# ── Catppuccin Macchiato Palette ───────────────────────────────────────────────
+# Base colours
+set $base     #24273a
+set $mantle   #1e2030
+set $crust    #181926
+set $surface0 #363a4f
+set $surface1 #494d64
+set $surface2 #5b6078
+set $overlay0 #6e738d
+set $overlay1 #8087a2
+set $overlay2 #939ab7
+set $subtext0 #a5adcb
+set $subtext1 #b8c0e0
+set $text     #cad3f5
+
+# Accent colours
+set $rosewater #f4dbd6
+set $flamingo  #f0c6c6
+set $pink      #f5bde6
+set $mauve     #c6a0f6
+set $red       #ed8796
+set $maroon    #ee99a0
+set $peach     #f5a97f
+set $yellow    #eed49f
+set $green     #a6da95
+set $teal      #8bd5ca
+set $sky       #91d7e3
+set $sapphire  #7dc4e4
+set $blue      #8aadf4
+set $lavender  #b7bdf8
+
+# ── Output / Display ──────────────────────────────────────────────────────────
+
+output * bg #24273a solid_color
+
+# ── Fonts ─────────────────────────────────────────────────────────────────────
+
+font pango:JetBrainsMono Nerd Font 13
+
+# ── Gaps & Borders (DWM-inspired: tight, functional) ─────────────────────────
+
+default_border          pixel 2
+default_floating_border pixel 2
+hide_edge_borders       smart
+smart_gaps              on
+smart_borders           on
+
+gaps inner 6
+gaps outer 3
+
+# ── Window Colours ────────────────────────────────────────────────────────────
+# Format: border  background  text    indicator  child_border
+
+client.focused          $mauve   $base   $text   $mauve   $mauve
+client.focused_inactive $surface0 $base  $subtext0 $surface1 $surface0
+client.unfocused        $surface0 $base  $overlay1 $surface0 $surface0
+client.urgent           $red     $base   $text   $red     $red
+client.placeholder      $base    $base   $subtext0 $base   $base
+client.background       $base
+
+# ── Workspaces ────────────────────────────────────────────────────────────────
+
+set $ws1  "1"
+set $ws2  "2"
+set $ws3  "3"
+set $ws4  "4"
+set $ws5  "5"
+set $ws6  "6"
+set $ws7  "7"
+set $ws8  "8"
+set $ws9  "9"
+set $ws10 "10"
+
+workspace_layout default
+
+# Floating overrides
+for_window [app_id="pavucontrol"]   floating enable, resize set 700 450
+for_window [app_id="nm-applet"]     floating enable
+for_window [window_role="pop-up"]   floating enable
+for_window [window_role="bubble"]   floating enable
+for_window [window_type="dialog"]   floating enable
+for_window [window_type="menu"]     floating enable
+for_window [title=".*[Pp]icker.*"]  floating enable
+for_window [title=".*[Cc]hoose.*"]  floating enable
+
+# ── Startup ───────────────────────────────────────────────────────────────────
+
+exec_always --no-startup-id waybar
+exec_always --no-startup-id swaybg -m fill -c "#24273a"
+
+exec --no-startup-id dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id wl-paste --watch cliphist store   # clipboard history
+exec --no-startup-id mako                              # notifications
+
+# ── Key Bindings — Applications ───────────────────────────────────────────────
+
+bindsym $mod+Return       exec $term
+bindsym $mod+d            exec $menu
+bindsym $mod+shift+Return exec $filemanager
+bindsym $mod+b            exec $browser
+bindsym $mod+n            exec $term -e nvim
+
+# Screenshot
+bindsym Print             exec grim -g "$(slurp)" - | wl-copy
+bindsym $mod+Print        exec grim ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png
+
+# Clipboard history picker
+bindsym $mod+v            exec cliphist list | rofi -dmenu | cliphist decode | wl-copy
+
+# Lock screen
+bindsym $mod+shift+x      exec swaylock -f -c 24273a
+
+# ── Key Bindings — Sway Control ───────────────────────────────────────────────
+
+bindsym $mod+c      kill
+bindsym $mod+shift+c      reload
+bindsym $mod+shift+e      exec swaynag \
+    -t warning \
+    -m 'Exit sway?' \
+    -b 'Yes' 'swaymsg exit'
+
+# ── Key Bindings — Focus (vim keys) ──────────────────────────────────────────
+
+bindsym $mod+$left        focus left
+bindsym $mod+$down        focus down
+bindsym $mod+$up          focus up
+bindsym $mod+$right       focus right
+
+bindsym $mod+Left         focus left
+bindsym $mod+Down         focus down
+bindsym $mod+Up           focus up
+bindsym $mod+Right        focus right
+
+bindsym $mod+a            focus parent
+
+# ── Key Bindings — Move Windows ───────────────────────────────────────────────
+
+bindsym $mod+shift+$left  move left
+bindsym $mod+shift+$down  move down
+bindsym $mod+shift+$up    move up
+bindsym $mod+shift+$right move right
+
+bindsym $mod+shift+Left   move left
+bindsym $mod+shift+Down   move down
+bindsym $mod+shift+Up     move up
+bindsym $mod+shift+Right  move right
+
+# ── Key Bindings — DWM-style Layout Manipulation ─────────────────────────────
+
+# Toggle split direction (like dwm's toggle layout)
+bindsym $mod+t            layout toggle split
+bindsym $mod+s            layout stacking
+bindsym $mod+w            layout tabbed
+bindsym $mod+e            layout toggle split
+
+# Swap focused window to master position (dwm Super+Return behaviour)
+bindsym $mod+shift+m      swap with mark "__master__"; \
+                           [con_mark="__master__"] focus
+
+# Zoom / make window fullscreen (dwm monocle-ish)
+bindsym $mod+m            fullscreen toggle
+bindsym $mod+f            fullscreen toggle
+
+# Toggle floating
+bindsym $mod+shift+space  floating toggle
+bindsym $mod+space        focus mode_toggle
+
+# Sticky (visible on all workspaces)
+bindsym $mod+shift+s      sticky toggle
+
+# ── Key Bindings — Resize (DWM-style: mod+ctrl) ───────────────────────────────
+
+mode "resize" {
+    bindsym $left   resize shrink width  30px
+    bindsym $down   resize grow   height 30px
+    bindsym $up     resize shrink height 30px
+    bindsym $right  resize grow   width  30px
+
+    bindsym Left    resize shrink width  30px
+    bindsym Down    resize grow   height 30px
+    bindsym Up      resize shrink height 30px
+    bindsym Right   resize grow   width  30px
+
+    bindsym Return  mode "default"
+    bindsym Escape  mode "default"
+    bindsym $mod+r  mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# Quick resize with mod+ctrl+hjkl
+bindsym $mod+ctrl+$left   resize shrink width  30px
+bindsym $mod+ctrl+$right  resize grow   width  30px
+bindsym $mod+ctrl+$up     resize shrink height 30px
+bindsym $mod+ctrl+$down   resize grow   height 30px
+
+# ── Key Bindings — Workspaces ─────────────────────────────────────────────────
+
+bindsym $mod+1  workspace $ws1
+bindsym $mod+2  workspace $ws2
+bindsym $mod+3  workspace $ws3
+bindsym $mod+4  workspace $ws4
+bindsym $mod+5  workspace $ws5
+bindsym $mod+6  workspace $ws6
+bindsym $mod+7  workspace $ws7
+bindsym $mod+8  workspace $ws8
+bindsym $mod+9  workspace $ws9
+bindsym $mod+0  workspace $ws10
+
+bindsym $mod+shift+1  move container to workspace $ws1
+bindsym $mod+shift+2  move container to workspace $ws2
+bindsym $mod+shift+3  move container to workspace $ws3
+bindsym $mod+shift+4  move container to workspace $ws4
+bindsym $mod+shift+5  move container to workspace $ws5
+bindsym $mod+shift+6  move container to workspace $ws6
+bindsym $mod+shift+7  move container to workspace $ws7
+bindsym $mod+shift+8  move container to workspace $ws8
+bindsym $mod+shift+9  move container to workspace $ws9
+bindsym $mod+shift+0  move container to workspace $ws10
+
+# Navigate workspaces like dwm (mod+tab / mod+shift+tab)
+bindsym $mod+Tab        workspace next_on_output
+bindsym $mod+shift+Tab  workspace prev_on_output
+
+# ── Key Bindings — Audio / Media ─────────────────────────────────────────────
+
+bindsym XF86AudioRaiseVolume  exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym XF86AudioLowerVolume  exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym XF86AudioMute         exec wpctl set-mute   @DEFAULT_AUDIO_SINK@ toggle
+bindsym XF86AudioMicMute      exec wpctl set-mute   @DEFAULT_AUDIO_SOURCE@ toggle
+
+bindsym XF86MonBrightnessUp   exec brightnessctl set 5%+
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+
+bindsym XF86AudioPlay  exec playerctl play-pause
+bindsym XF86AudioNext  exec playerctl next
+bindsym XF86AudioPrev  exec playerctl previous
+
+# ── Scratchpad ────────────────────────────────────────────────────────────────
+
+bindsym $mod+minus  scratchpad show
+bindsym $mod+shift+minus  move scratchpad
+
+# ── Floating window drag / resize modifiers ───────────────────────────────────
+
+floating_modifier $mod normal
+
+# ── Bar ───────────────────────────────────────────────────────────────────────
+# Waybar is launched via exec_always above.
+# Sway's built-in bar is disabled; if you ever want it as fallback:
+# bar { swaybar_command waybar }
+
+# ── Misc ──────────────────────────────────────────────────────────────────────
+
+focus_follows_mouse yes
+mouse_warping      output
+popup_during_fullscreen smart
+
+# GTK theme hints (catppuccin-macchiato-gtk)
+# Install: catppuccin-gtk-theme-macchiato
+set $gnome-schema org.gnome.desktop.interface
+exec_always {
+    gsettings set $gnome-schema gtk-theme    "catppuccin-macchiato-mauve-standard+default"
+    gsettings set $gnome-schema icon-theme   "Papirus-Dark"
+    gsettings set $gnome-schema cursor-theme "catppuccin-macchiato-dark-cursors"
+    gsettings set $gnome-schema font-name    "JetBrainsMono Nerd Font 13"
+}
