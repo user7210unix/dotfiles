@@ -24,18 +24,12 @@ Carefully crafted for Wayland — minimal, fast, and easy on the eyes.</p>
 
 - [Showcase](#showcase)
 - [Components](#components)
-- [Installation](#installation)
-- [Dependencies](#dependencies)
-- [Customization](#customization)
-- [Tips & Troubleshooting](#tips--troubleshooting)
-- [License](#license)
-
 ---
 
 ## Showcase
 
 <div align="center">
-  <img src="showcase/rice.png" width="80%">
+  <img src="showcase.png" width="100%">
 </div>
 
 ---
