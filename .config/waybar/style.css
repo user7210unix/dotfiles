@@ -1,0 +1,139 @@
+/* ~/.config/waybar/style.css
+ * base16-default-dark · flat + slightly transparent · Sway
+ *
+ * Palette
+ *   base00 #181818   base01 #282828   base02 #383838   base03 #585858
+ *   base04 #b8b8b8   base05 #d8d8d8   base06 #e8e8e8   base07 #f8f8f8
+ *   base08 #ab4642   base09 #dc9656   base0A #f7ca88   base0B #a1b56c
+ *   base0C #86c1b9   base0D #7cafc2   base0E #ba8baf   base0F #a16946
+ */
+
+/* ── Reset ──────────────────────────────────────────────────────────────── */
+* {
+    border:        none;
+    border-radius: 0;
+    /* GTK needs the full name exactly as fc-list reports it */
+    font-family:   "CaskaydiaMono Nerd Font Mono";
+    font-size:     12px;
+    min-height:    0;
+    padding:       0;
+    margin:        0;
+    box-shadow:    none;
+    text-shadow:   none;
+}
+
+/* ── Bar ────────────────────────────────────────────────────────────────── */
+window#waybar {
+    background-color: rgba(24, 24, 24, 0.87);   /* base00 @ 87 % */
+    color:            #d8d8d8;                   /* base05 */
+    border-bottom:    1px solid #282828;          /* base01 – thin separator */
+}
+
+window#waybar.hidden {
+    opacity: 0.3;
+}
+
+/* ── Tooltip ────────────────────────────────────────────────────────────── */
+tooltip {
+    background-color: rgba(40, 40, 40, 0.95);   /* base01 */
+    border:           1px solid #383838;          /* base02 */
+    padding:          4px 8px;
+}
+
+tooltip label {
+    color: #d8d8d8;
+}
+
+/* ── Shared module base ─────────────────────────────────────────────────── */
+#workspaces button,
+#mode,
+#pulseaudio,
+#cpu,
+#memory,
+#disk,
+#network,
+#battery,
+#clock,
+#custom-weather {
+    background-color: transparent;
+    color:            #d8d8d8;
+    padding:          0 10px;
+    margin:           0;
+}
+
+/* ── Workspaces ─────────────────────────────────────────────────────────── */
+#workspaces button {
+    padding:   0 8px;
+    color:     #585858;                /* base03 – inactive: muted */
+    min-width: 18px;
+}
+
+#workspaces button.focused {
+    color: #d8d8d8;                    /* base05 – active: full brightness */
+    border-bottom: 2px solid #7cafc2;  /* base0D – blue underline accent */
+}
+
+#workspaces button.urgent {
+    color:        #ab4642;             /* base08 – red */
+    border-bottom: 2px solid #ab4642;
+}
+
+#workspaces button:hover {
+    background-color: rgba(56, 56, 56, 0.5);   /* base02 @ 50 % */
+    color:            #b8b8b8;
+}
+
+/* ── sway/mode ──────────────────────────────────────────────────────────── */
+#mode {
+    color:            #181818;
+    background-color: #f7ca88;         /* base0A – yellow, hard to miss */
+    padding:          0 10px;
+    font-weight:      bold;
+}
+
+/* ── Weather ────────────────────────────────────────────────────────────── */
+#custom-weather { color: #86c1b9; }    /* base0C */
+
+/* ── Volume ─────────────────────────────────────────────────────────────── */
+#pulseaudio         { color: #7cafc2; } /* base0D */
+#pulseaudio.muted   { color: #585858; } /* base03 */
+
+/* ── CPU ────────────────────────────────────────────────────────────────── */
+#cpu    { color: #a1b56c; }            /* base0B */
+
+/* ── Memory ─────────────────────────────────────────────────────────────── */
+#memory { color: #ba8baf; }            /* base0E */
+
+/* ── Disk ───────────────────────────────────────────────────────────────── */
+#disk   { color: #dc9656; }            /* base09 */
+
+/* ── Network ────────────────────────────────────────────────────────────── */
+#network              { color: #86c1b9; }  /* base0C */
+#network.ethernet     { color: #a1b56c; }  /* base0B */
+#network.disconnected { color: #ab4642; }  /* base08 */
+
+/* ── Battery ────────────────────────────────────────────────────────────── */
+#battery                      { color: #a1b56c; }  /* base0B – healthy */
+#battery.charging,
+#battery.plugged               { color: #f7ca88; }  /* base0A – charging */
+#battery.full                  { color: #a1b56c; }
+#battery.warning:not(.charging){ color: #dc9656; }  /* base09 – warning */
+
+#battery.critical:not(.charging) {
+    color: #ab4642;                    /* base08 – critical */
+    animation-name:            blink;
+    animation-duration:        1.2s;
+    animation-timing-function: steps(6);
+    animation-iteration-count: infinite;
+    animation-direction:       alternate;
+}
+
+@keyframes blink {
+    to { color: #f8f8f8; }
+}
+
+/* ── Clock ──────────────────────────────────────────────────────────────── */
+#clock {
+    color:          #b8b8b8;           /* base04 – slightly dimmer, unobtrusive */
+    padding-right:  12px;
+}
