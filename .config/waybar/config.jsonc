@@ -1,0 +1,131 @@
+{
+    "layer":        "top",
+    "position":     "top",
+    "height":       24,
+    "spacing":      0,
+    "fixed-center": true,
+    "exclusive":    true,
+
+    // .. sections ............................................................
+    "modules-left":   ["sway/workspaces", "sway/mode"],
+    "modules-center": ["custom/weather"],
+    "modules-right": [
+        "pulseaudio",
+        "cpu",
+        "memory",
+        "disk",
+        "network",
+        "custom/kernel",
+        "battery",
+        "clock"
+    ],
+
+    // .. sway/workspaces ......................................................
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs":    false,
+        "format":         "{name}"
+    },
+
+    // .. sway/mode ............................................................
+    "sway/mode": {
+        "format": " {}"
+    },
+
+    // .. weather ..............................................................
+    "custom/weather": {
+        "exec":        "~/.config/waybar/weather.sh",
+        "return-type": "json",
+        "interval":    900,
+        "tooltip":     true
+    },
+
+    // .. pulseaudio ...........................................................
+    "pulseaudio": {
+        "format":        "Vol {volume}%",
+        "format-muted":  " mute",
+        "format-icons": {
+            "headphone":  "",
+            "hands-free": "",
+            "headset":    "",
+            "phone":      "",
+            "portable":   "",
+            "car":        "",
+            "default":    ["", "", ""]
+        },
+        "on-click":       "pavucontrol",
+        "on-scroll-up":   "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-",
+        "tooltip-format": "{desc}"
+    },
+
+    // .. cpu ..................................................................
+    "cpu": {
+        "interval":       3,
+        "format":         "Cpu {usage}%",
+        "tooltip":        true,
+        "tooltip-format": "CPU  {usage}%\nLoad {load}"
+    },
+
+    // .. memory ...............................................................
+    "memory": {
+        "interval":       10,
+        "format":         "Ram {used:.1f}G",
+        "tooltip":        true,
+        "tooltip-format": "RAM  {used:.1f} / {total:.1f} GiB\nSwap {swapUsed:.1f} / {swapTotal:.1f} GiB"
+    },
+
+    // .. disk .................................................................
+    "disk": {
+        "path":           "/home",
+        "interval":       30,
+        "format":         "Disk {free}",
+        "tooltip":        true,
+        "tooltip-format": "/home  {used} used of {total} ({percentage_used}% full)"
+    },
+
+    // .. network ..............................................................
+    "network": {
+        "interval":                  30,
+        "format-wifi":               "{icon} {essid} {signalStrength}%",
+        "format-ethernet":           " {ipaddr}",
+        "format-disconnected":       " disconn",
+        "format-linked":             " (no IP)",
+        "format-icons":              ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "tooltip-format-wifi":       "{essid}\n{signalStrength}%  {signaldBm} dBm\n{frequency} GHz\n{ifname} · {ipaddr}",
+        "tooltip-format-ethernet":   "󰊗 {ifname} · {ipaddr}",
+        "tooltip-format-disconnected":"No network",
+        "max-length":                22,
+        "on-click":                  "kitty -e nmtui"
+    },
+
+    // .. battery ..............................................................
+    "battery": {
+        "states": {
+            "good":     95,
+            "warning":  30,
+            "critical": 15
+        },
+        "format":          "Bat {capacity}%",
+        "format-charging": "Char {capacity}%",
+        "format-plugged":  "Bat {capacity}%",
+        "format-full":     "Bat full",
+        "format-icons":    ["", "", "", "", ""],
+        "tooltip-format":  "{timeTo}\n{power:.1f} W"
+    },
+
+    // .. kernel ...............................................................
+    "custom/kernel": {
+        "exec":        "uname -r | sed 's/\\.fc[0-9].*$//'",
+        "interval":    3600,
+        "format":      " {}",
+        "tooltip":     false
+    },
+
+    // .. clock ................................................................
+    "clock": {
+        "interval":        30,
+        "format":          " {:%H:%M  %d/%m/%y}",
+        "tooltip-format":  "<big>{:%A, %d %B %Y}</big>\n<tt><small>{calendar}</small></tt>"
+    }
+}

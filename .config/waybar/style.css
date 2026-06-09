@@ -1,0 +1,139 @@
+/* ~/.config/waybar/style.css
+ * Pywal + base16-inspired dynamic theme for Sway/Waybar
+ */
+
+@import url("/home/user/.cache/wal/colors-waybar.css");
+
+/* .. Reset ................................................................ */
+* {
+    border:        2px;
+    border-radius: 0;
+    font-family:   "JetBrainsMono Nerd Font";
+    font-weight:   800;
+    font-size:     12px;
+    min-height:    0;
+    padding:       0;
+    margin:        0;
+    box-shadow:    none;
+    text-shadow:   none;
+}
+
+/* .. Bar .................................................................. */
+window#waybar {
+    background-color: alpha(@background, 0.87);
+    color:            @foreground;
+    border-bottom:    1px solid alpha(@color8, 0.8);
+}
+
+window#waybar.hidden {
+    opacity: 0.3;
+}
+
+/* .. Tooltip .............................................................. */
+tooltip {
+    background-color: alpha(@color1, 0.95);
+    border:           1px solid @color8;
+    padding:          4px 8px;
+}
+
+tooltip label {
+    color: @foreground;
+}
+
+/* .. Shared module base ................................................... */
+#workspaces button,
+#mode,
+#pulseaudio,
+#cpu,
+#memory,
+#disk,
+#network,
+#battery,
+#kernel,
+#clock,
+#custom-weather {
+    background-color: transparent;
+    color:            @foreground;
+    padding:          0 10px;
+    margin:           0;
+}
+
+/* .. Workspaces ........................................................... */
+#workspaces button {
+    padding:   0 8px;
+    color:     @color8;                /* inactive */
+    min-width: 18px;
+}
+
+#workspaces button.focused {
+    color: @foreground;
+    border-bottom: 2px solid @color13;  /* accent */
+}
+
+#workspaces button.urgent {
+    color:        @color9;
+    border-bottom: 2px solid @color9;
+}
+
+#workspaces button:hover {
+    background-color: alpha(@color8, 0.5);
+    color:            @color7;
+}
+
+/* .. sway/mode ............................................................ */
+#mode {
+    color:            @background;
+    background-color: @color11;         /* yellow-ish accent */
+    padding:          0 10px;
+    font-weight:      bold;
+}
+
+/* .. Weather .............................................................. */
+#custom-weather { color: @color12; }
+
+/* .. Volume ............................................................... */
+#pulseaudio         { color: @color13; }
+#pulseaudio.muted   { color: @color8; }
+
+/* .. CPU .................................................................. */
+#cpu    { color: @color10; }
+
+/* .. Memory ............................................................... */
+#memory { color: @color14; }
+
+/* .. Kernel ............................................................... */
+#kernel { color: @color14; }
+
+/* .. Disk ................................................................. */
+#disk   { color: @color9; }
+
+/* .. Network .............................................................. */
+#network              { color: @color12; }
+#network.ethernet     { color: @color10; }
+#network.disconnected { color: @color9; }
+
+/* .. Battery .............................................................. */
+#battery                      { color: @color10; }
+#battery.charging,
+#battery.plugged               { color: @color11; }
+#battery.full                  { color: @color10; }
+#battery.warning:not(.charging){ color: @color9; }
+
+#battery.critical:not(.charging) {
+    color: @color9;
+    animation-name:            blink;
+    animation-duration:        1.2s;
+    animation-timing-function: steps(6);
+    animation-iteration-count: infinite;
+    animation-direction:       alternate;
+}
+
+@keyframes blink {
+    to { color: @foreground; }
+}
+
+/* .. Clock ................................................................ */
+#clock {
+    color:          @color7;
+    padding-right:  12px;
+}
