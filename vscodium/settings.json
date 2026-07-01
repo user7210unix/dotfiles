@@ -1,0 +1,89 @@
+{
+    "workbench.colorTheme": "Tokyo Night",
+
+    "workbench.iconTheme": "catppuccin noctis icons",
+
+    "window.menuBarVisibility": "compact",
+    "window.commandCenter": false,
+
+    "workbench.activityBar.location": "hidden",
+    "workbench.statusBar.visible": false,
+
+    "workbench.editor.showTabs": "single",
+    "workbench.startupEditor": "none",
+
+    "editor.fontFamily": "'Maple Mono', monospace",
+    "editor.fontSize": 16,
+    "editor.fontWeight": "400",
+    "editor.lineHeight": 26,
+    "editor.fontLigatures": true,
+
+    "editor.lineNumbers": "relative",
+    "editor.lineNumbersMinChars": 2,
+
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.cursorStyle": "line-thin",
+    "editor.cursorWidth": 2,
+    "editor.smoothScrolling": true,
+
+    "editor.renderLineHighlight": "all",
+    "editor.renderWhitespace": "selection",
+
+    "editor.minimap.enabled": false,
+    "editor.stickyScroll.enabled": false,
+    "editor.scrollBeyondLastLine": false,
+
+    "editor.guides.indentation": true,
+    "editor.guides.highlightActiveIndentation": true,
+    "editor.guides.bracketPairs": "active",
+    "editor.bracketPairColorization.enabled": true,
+
+    "breadcrumbs.enabled": false,
+
+    "explorer.compactFolders": false,
+    "workbench.tree.indent": 10,
+
+    "terminal.integrated.fontFamily": "'Maple Mono', monospace",
+    "terminal.integrated.fontSize": 15,
+    "terminal.integrated.smoothScrolling": true,
+
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 750,
+
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+
+    "workbench.list.smoothScrolling": true,
+
+    "workbench.colorCustomizations": {
+        "editor.background": "#0d1117",
+        "editor.lineHighlightBackground": "#1f293755",
+        "editor.lineHighlightBorder": "#00000000",
+
+        "editorCursor.foreground": "#7aa2f7",
+
+        "editorLineNumber.foreground": "#565f89",
+        "editorLineNumber.activeForeground": "#c0caf5",
+
+        "editorIndentGuide.background1": "#2d3445",
+        "editorIndentGuide.activeBackground1": "#7aa2f7",
+
+        "editor.selectionBackground": "#33467c99",
+
+        "editorBracketHighlight.foreground1": "#7aa2f7",
+        "editorBracketHighlight.foreground2": "#9ece6a",
+        "editorBracketHighlight.foreground3": "#e0af68",
+
+        "sideBar.border": "#00000000",
+        "panel.border": "#00000000",
+        "editorGroup.border": "#00000000"
+    },
+
+    "vim.useSystemClipboard": true,
+    "vim.hlsearch": true,
+    "vim.incsearch": true,
+    "vim.smartRelativeLine": true,
+    "vim.easymotion": true,
+    "catppuccin-noctis-icons.hidesExplorerArrows": false
+}
