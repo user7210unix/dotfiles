@@ -1,4 +1,4 @@
-<div align="center">
+<div align="left">
 
 <!-- Banner -->
 <img src="ban.png" alt="Dotfiles Collection" width="400px">
