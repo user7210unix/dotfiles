@@ -1,0 +1,13 @@
+color TRUE
+
+inline_image TRUE
+
+frame TRUE
+
+display_link_number TRUE
+
+show_lnum TRUE
+fold_textarea TRUE
+use_combining TRUE
+
+vi_keymap TRUE
