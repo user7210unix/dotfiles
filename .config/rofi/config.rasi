@@ -1,0 +1,72 @@
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+
+configuration {
+    modi:                       "drun,run,window";
+    show-icons:                 true;
+    icon-theme:                 "oomox-Everforest-Dark";
+    display-drun:               " Apps";
+    display-run:                " Run";
+    display-window:             " Windows";
+    drun-display-format:        "{name}";
+    font:                       "Victor Mono Bold 12";
+    disable-history:            false;
+}
+
+window {
+    width:            600px;
+    border-radius:    8px;
+    border:           2px;
+    border-color:     @selected-normal-background;
+    background-color: @background;
+}
+
+mainbox {
+    padding: 10px;
+}
+
+inputbar {
+    background-color: @background;
+    text-color:        @foreground;
+    padding:            8px;
+    border-radius:      6px;
+    border:             1px;
+    border-color:       @selected-normal-background;
+    children:           [ "prompt", "entry" ];
+}
+
+prompt {
+    text-color: @foreground;
+    padding:    0 8px 0 0;
+}
+
+entry {
+    text-color:    @foreground;
+    placeholder:   "Search…";
+}
+
+listview {
+    lines:      8;
+    spacing:    4px;
+    padding:    8px 0 0 0;
+    fixed-height: false;
+}
+
+element {
+    padding:        6px;
+    border-radius:  6px;
+}
+
+element normal.normal {
+    background-color: @background;
+    text-color:        @foreground;
+}
+
+element selected.normal {
+    background-color: @selected-normal-background;
+    text-color:        @selected-normal-foreground;
+}
+
+element alternate.normal {
+    background-color: @background;
+    text-color:        @foreground;
+}
