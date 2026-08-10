@@ -1,0 +1,13 @@
+configuration {
+    font: "Plus Jakarta Sans 14";
+    show-icons: true;
+    icon-theme: "Adwaita";
+    display-drun: " ";
+    drun-display-format: "{name} <span weight='light' size='small'><i>{comment}</i></span>";
+    disable-history: false;
+    fullscreen: false;
+    hide-scrollbar: false;
+    sidebar-mode: false;
+}
+
+@theme "./sss-theme.rasi"
