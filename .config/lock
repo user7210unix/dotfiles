@@ -1,0 +1,77 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+TMPIMG="/tmp/i3lock_$$.png"
+FONT_FILE="$HOME/.fonts/PlusJakartaSans-VariableFont_wght.ttf"
+BLUR="0x20"
+
+# Font fallback
+[[ -f "$FONT_FILE" ]] || FONT_FILE="DejaVu-Sans"
+
+# Screenshot
+scrot -o "$TMPIMG"
+
+# Weather
+WEATHER=$(curl -s --max-time 2 "https://wttr.in/?format=%c+%t" 2>/dev/null | tr -s ' ' || true)
+
+TIME=$(date "+%H:%M")
+DATE=$(date "+%A, %d %B")
+
+magick "$TMPIMG" -blur "$BLUR" "$TMPIMG"
+
+# Add clock / date / weather with light soft shadows
+magick "$TMPIMG" \
+    \( -size 1000x400 xc:none \
+       -font "$FONT_FILE" -fill "rgba(0,0,0,0.40)" -pointsize 110 \
+       -gravity SouthEast -annotate +52+145 "$TIME" \
+       -blur 0x3 \) -gravity SouthEast -compose over -composite \
+    -font "$FONT_FILE" -fill "white" -pointsize 110 \
+    -gravity SouthEast -annotate +45+138 "$TIME" \
+    \
+    \( -size 1000x200 xc:none \
+       -font "$FONT_FILE" -fill "rgba(0,0,0,0.35)" -pointsize 32 \
+       -gravity SouthEast -annotate +48+78 "$DATE" \
+       -blur 0x2 \) -gravity SouthEast -compose over -composite \
+    -font "$FONT_FILE" -fill "rgba(255,255,255,0.93)" -pointsize 32 \
+    -gravity SouthEast -annotate +42+72 "$DATE" \
+    \
+    \( -size 1000x120 xc:none \
+       -font "$FONT_FILE" -fill "rgba(0,0,0,0.35)" -pointsize 26 \
+       -gravity SouthEast -annotate +48+42 "$WEATHER" \
+       -blur 0x2 \) -gravity SouthEast -compose over -composite \
+    -font "$FONT_FILE" -fill "rgba(255,255,255,0.88)" -pointsize 26 \
+    -gravity SouthEast -annotate +42+36 "$WEATHER" \
+    "$TMPIMG"
+
+# lock 
+if command -v i3lock-color >/dev/null 2>&1; then
+    i3lock-color \
+        --image "$TMPIMG" \
+        --nofork \
+        --ignore-empty-password \
+        --show-failed-attempts \
+        --indicator \
+        --radius=95 \
+        --ring-width=5.5 \
+        --inside-color=00000044 \
+        --ring-color=ffffffcc \
+        --line-color=00000000 \
+        --separator-color=00000000 \
+        --keyhl-color=ffffffff \
+        --bshl-color=ff6666dd \
+        --insidever-color=00000077 \
+        --ringver-color=88ff99cc \
+        --insidewrong-color=00000077 \
+        --ringwrong-color=ff5555cc \
+        --verif-color=ffffff \
+        --wrong-color=ff9999 \
+        --verif-text="verifying…" \
+        --wrong-text="wrong!" \
+        --noinput-text="" \
+        --time-color=00000000 \
+        --date-color=00000000
+else
+    i3lock -i "$TMPIMG" -e -f
+fi
+
+rm -f "$TMPIMG"
