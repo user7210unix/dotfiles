@@ -50,3 +50,36 @@ Install the following packages (names may vary slightly depending on your distro
 | **System Utils**      | `brightnessctl`, `playerctl`, `network-manager-applet`, `autorandr`     |
 | **Audio**             | `wireplumber` (for `wpctl`)                                             |
 | **Other**             | `curl`, `calc`, `dex`                                                   |
+
+
+## Fonts
+
+Install these fonts for the best experience:
+
+1. **Plus Jakarta Sans**  
+   → https://fonts.google.com/specimen/Plus+Jakarta+Sans
+
+2. **Iosevka Nerd Font**  
+   → https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.0/Iosevka.zip
+
+After downloading, place them in `~/.fonts` or `~/.local/share/fonts` and run:
+
+```bash
+fc-cache -fv
+```
+
+## i3Lock Setup
+
+Copy the lock script to your local bin:
+
+```bash
+cp .config/lock ~/.local/bin/lock
+```
+
+Make it executable:
+
+```bash
+chmod +x ~/.local/bin/lock
+```
+
+The lockscreen is bound to Mod + L by default.
