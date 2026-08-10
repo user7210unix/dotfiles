@@ -12,7 +12,7 @@ window {
     width: 45%;
     padding: 24px;
     border: 2px;
-    border-color: #feacd0;
+    border-color: #007979;
     border-radius: 16px;
     background-color: rgba(29, 32, 33, 0.93);
     children: [ mainbox ];
@@ -38,7 +38,7 @@ inputbar {
 }
 
 prompt {
-    text-color: #feacd0;
+    text-color: #007979;
 }
 
 entry {
@@ -75,6 +75,6 @@ element-icon {
 }
 
 element selected {
-    background-color: #feacd0;
+    background-color: #007979;
     text-color: #1d2021;
 }
