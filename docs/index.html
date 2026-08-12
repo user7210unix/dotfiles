@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>i3 Blue Edition — Dotfiles</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --bg: #181818;
+      --bg-alt: #222222;
+      --fg: #d8d8d8;
+      --fg-dim: #888888;
+      --accent: #7cafc2;
+      --accent2: #86c1b9;
+      --border: #333333;
+      --red: #ab4642;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* subtle entrance */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    header, section {
+      animation: fadeUp 0.5s ease both;
+    }
+
+    header { animation-delay: 0.05s; }
+    section:nth-of-type(1) { animation-delay: 0.1s; }
+    section:nth-of-type(2) { animation-delay: 0.15s; }
+    section:nth-of-type(3) { animation-delay: 0.2s; }
+    section:nth-of-type(4) { animation-delay: 0.25s; }
+    section:nth-of-type(5) { animation-delay: 0.3s; }
+
+    header {
+      padding: 64px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      color: var(--fg-dim);
+      font-size: 1.05rem;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 4px 10px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 3px;
+    }
+
+    h2 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+      color: var(--fg);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h2 i {
+      color: var(--accent);
+      font-size: 0.95rem;
+    }
+
+    section {
+      margin-bottom: 52px;
+    }
+
+    p {
+      color: var(--fg-dim);
+      margin-bottom: 14px;
+    }
+
+    .preview {
+      width: 100%;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    /* package tables */
+    .pkg-block {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 18px;
+      overflow: hidden;
+    }
+
+    .pkg-block .distro {
+      padding: 10px 16px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pkg-block pre {
+      padding: 14px 16px;
+      font-family: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+      font-size: 0.82rem;
+      line-height: 1.55;
+      color: var(--fg);
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+
+    /* file tree */
+    .tree {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 18px 20px;
+      font-family: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+      font-size: 0.82rem;
+      line-height: 1.7;
+      color: var(--fg-dim);
+      overflow-x: auto;
+    }
+
+    .tree .dir { color: var(--accent); }
+    .tree .file { color: var(--fg); }
+
+    /* list */
+    ul.plain {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul.plain li {
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--fg-dim);
+      display: flex;
+      gap: 10px;
+    }
+
+    ul.plain li:last-child { border-bottom: none; }
+
+    ul.plain li span {
+      color: var(--fg);
+      min-width: 140px;
+      font-weight: 500;
+    }
+
+    code {
+      font-family: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+      font-size: 0.85em;
+      background: var(--bg-alt);
+      padding: 2px 6px;
+      border-radius: 3px;
+      color: var(--accent2);
+    }
+
+    footer {
+      margin-top: 60px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--fg-dim);
+      text-align: center;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <h1>i3 Blue Edition</h1>
+      <p>Clean, minimal i3wm configuration focused on a coherent blue aesthetic and low resource use.</p>
+      <div class="badge">branch · i3-blue</div>
+    </header>
+
+    <section>
+      <h2><i class="fa-solid fa-eye"></i> Overview</h2>
+      <p>
+        This setup pairs i3 with Polybar, Rofi, Picom, Dunst and Kitty.
+        The visual language is deliberately restrained: dark backgrounds,
+        thin underlines, short labels and a single accent family.
+      </p>
+      <p>
+        Polybar shows weather, date, time, volume, battery, RAM, CPU,
+        temperature and kernel version. Notifications use a matching
+        dunst theme with bottom accent lines.
+      </p>
+    </section>
+
+    <section>
+      <h2><i class="fa-solid fa-image"></i> Preview</h2>
+      <img class="preview" src="https://raw.githubusercontent.com/user7210unix/dotfiles/i3-blue/assets/preview.png" alt="Desktop preview">
+      <img class="preview" src="https://raw.githubusercontent.com/user7210unix/dotfiles/i3-blue/assets/lock.jpg" alt="Lockscreen preview">
+    </section>
+
+    <section>
+      <h2><i class="fa-solid fa-box"></i> Dependencies</h2>
+      <p>Install the packages below for your distribution. Names can differ slightly between releases.</p>
+
+      <div class="pkg-block">
+        <div class="distro"><i class="fa-brands fa-fedora"></i> Fedora</div>
+        <pre>sudo dnf install i3 polybar rofi picom dunst kitty \
+  i3lock-color feh scrot ImageMagick flameshot \
+  brightnessctl playerctl network-manager-applet \
+  autorandr curl</pre>
+      </div>
+
+      <div class="pkg-block">
+        <div class="distro"><i class="fa-brands fa-archway"></i> Arch Linux</div>
+        <pre>sudo pacman -S i3-wm polybar rofi picom dunst kitty \
+  i3lock-color feh scrot imagemagick flameshot \
+  brightnessctl playerctl network-manager-applet \
+  autorandr curl
+
+# AUR (if needed)
+yay -S i3lock-color</pre>
+      </div>
+
+      <div class="pkg-block">
+        <div class="distro"><i class="fa-brands fa-ubuntu"></i> Debian / Ubuntu</div>
+        <pre>sudo apt install i3 polybar rofi picom dunst kitty \
+  i3lock feh scrot imagemagick flameshot \
+  brightnessctl playerctl network-manager-gnome \
+  autorandr curl
+
+# i3lock-color is usually preferred (build from source or PPA)</pre>
+      </div>
+
+      <div class="pkg-block">
+        <div class="distro"><i class="fa-brands fa-suse"></i> openSUSE</div>
+        <pre>sudo zypper install i3 polybar rofi picom dunst kitty \
+  i3lock feh scrot ImageMagick flameshot \
+  brightnessctl playerctl NetworkManager-applet \
+  autorandr curl</pre>
+      </div>
+    </section>
+
+    <section>
+      <h2><i class="fa-solid fa-font"></i> Fonts</h2>
+      <ul class="plain">
+        <li>
+          <span>Plus Jakarta Sans</span>
+          <a href="https://fonts.google.com/specimen/Plus+Jakarta+Sans">fonts.google.com</a>
+        </li>
+        <li>
+          <span>Iosevka Nerd Font</span>
+          <a href="https://github.com/ryanoasis/nerd-fonts/releases">nerd-fonts releases</a>
+        </li>
+      </ul>
+      <p style="margin-top:14px">
+        Place the files in <code>~/.local/share/fonts</code> or <code>~/.fonts</code>, then run:
+      </p>
+      <div class="pkg-block">
+        <pre>fc-cache -fv</pre>
+      </div>
+    </section>
+
+    <section>
+      <h2><i class="fa-solid fa-lock"></i> Lockscreen</h2>
+      <p>Copy the lock script and make it executable:</p>
+      <div class="pkg-block">
+        <pre>cp .config/lock ~/.local/bin/lock
+chmod +x ~/.local/bin/lock</pre>
+      </div>
+      <p>Bound to <code>Mod + L</code> by default.</p>
+    </section>
+
+    <section>
+      <h2><i class="fa-solid fa-terminal"></i> Quick start</h2>
+      <div class="pkg-block">
+        <pre>git clone -b i3-blue https://github.com/user7210unix/dotfiles.git
+cd dotfiles
+cp -r .config/* ~/.config/
+# install fonts, then
+fc-cache -fv
+# restart i3 or log out / in</pre>
+      </div>
+    </section>
+
+    <footer>
+      <a href="https://github.com/user7210unix/dotfiles/tree/i3-blue">github.com/user7210unix/dotfiles</a>
+      &nbsp;·&nbsp; i3-blue branch
+    </footer>
+
+  </div>
+</body>
+</html>
