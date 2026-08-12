@@ -1,59 +1,98 @@
 [global]
-  monitor = 0
-  follow = mouse
-  shrink = yes
-  padding = 10
-  horizontal_padding = 10
+    ### Geometry & Position
+    monitor = 0
+    follow = keyboard                  # follows focused window (perfect for i3)
+    width = 320
+    height = (0, 300)
+    origin = top-right
+    offset = 12x12
+    scale = 0
+    notification_limit = 4
 
-  width = 400
-  height = 300  
-  offset = 20x60
-  origin = top-right
+    ### Progress bar
+    progress_bar = true
+    progress_bar_height = 3
+    progress_bar_frame_width = 0
+    progress_bar_min_width = 150
+    progress_bar_max_width = 300
+    progress_bar_corner_radius = 0
 
-  frame_width = 1
-  separator_height = 2
-  frame_color = "#89b4fa"
-  separator_color = frame
-  highlight = "#89b4fa"
+    ### Appearance
+    transparency = 8
+    separator_height = 0
+    padding = 12
+    horizontal_padding = 14
+    text_icon_padding = 10
+    frame_width = 0                    # no full frame
+    gap_size = 6
+    separator_color = frame
+    sort = yes
+    idle_threshold = 120
 
-  sort = no
-  font = JetBrainsMono 14
-  markup = full
-  format = "<b>%s</b>\n%b"
-  alignment = center
-  show_age_threshold = 60
-  word_wrap = yes
-  ignore_newline = no
-  stack_duplicates = true
-  hide_duplicate_count = no
-  show_indicators = yes
+    ### Font (matches your polybar)
+    font = Plus Jakarta Sans 10
 
-  icon_position = left
-  max_icon_size = 60
-  sticky_history = no
-  history_length = 6
-  title = Dunst
-  class = Dunst
-  corner_radius = 0
+    ### Markup & Format
+    line_height = 0
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    vertical_alignment = center
+    show_age_threshold = 60
+    ellipsize = end
+    ignore_newline = no
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = no
 
-  mouse_left_click = close_current
-  mouse_middle_click = do_action
-  mouse_right_click = close_all
+    ### Icons
+    icon_position = left
+    min_icon_size = 28
+    max_icon_size = 48
+    icon_path = /usr/share/icons/Papirus-Dark/24x24/status/:/usr/share/icons/Papirus-Dark/24x24/devices/:/usr/share/icons/Papirus-Dark/24x24/apps/
+
+    ### History & Behavior
+    sticky_history = yes
+    history_length = 20
+    dmenu = /usr/bin/rofi -dmenu -p dunst
+    browser = /usr/bin/xdg-open
+    always_run_script = true
+    title = Dunst
+    class = Dunst
+    corner_radius = 6
+    ignore_dbusclose = false
+
+    ### Mouse
+    mouse_left_click = close_current
+    mouse_middle_click = do_action, close_current
+    mouse_right_click = close_all
 
 [urgency_low]
-  background = "#1e1e2e"
-  foreground = "#cdd6f4"
-  frame_color = "#89b4fa"
-  timeout = 5
+    background = "#181818"
+    foreground = "#d8d8d8"
+    highlight  = "#86c1b9"             # cyan underline
+    frame_color = "#86c1b9"
+    timeout = 4
+    # Bottom underline effect
+    default_icon = dialog-information
 
 [urgency_normal]
-  background = "#1e1e2e"
-  foreground = "#cdd6f4"
-  frame_color = "#89b4fa"
-  timeout = 5
+    background = "#181818"
+    foreground = "#d8d8d8"
+    highlight  = "#7cafc2"             # blue underline
+    frame_color = "#7cafc2"
+    timeout = 6
+    default_icon = dialog-information
 
 [urgency_critical]
-  background = "#1e1e2e"
-  foreground = "#cdd6f4"
-  frame_color = "#fab387"
-  timeout = 10
+    background = "#181818"
+    foreground = "#d8d8d8"
+    highlight  = "#ab4642"             # red underline
+    frame_color = "#ab4642"
+    timeout = 0
+    default_icon = dialog-warning
+
+# Optional: make critical notifications more noticeable
+[urgency_critical]
+    background = "#281818"
+    foreground = "#f8f8f8"
