@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/preview.png" alt="I3 Blue Edition Preview" width="800">
+  <img src="assets/1preview.png" alt="I3 Blue Edition Preview" width="800">
   <h1>🌊 i3 Blue Edition</h1>
   <p><strong>Clean • Minimal • Aesthetic i3wm Dotfiles</strong></p>
   <p>
