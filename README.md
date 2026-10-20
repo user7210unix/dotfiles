@@ -148,7 +148,7 @@ Each setup is designed with usability, aesthetics, and performance in mind.</p>
   <tr>
     <td width="50%">
       <h4>🌊 <a href="https://github.com/user7210unix/dotfiles/tree/i3-blue">i3 Blue Edition</a></h4>
-      <img src="https://raw.githubusercontent.com/user7210unix/dotfiles/refs/heads/i3-blue/i3-preview.png" width="100%">
+      <img src="https://github.com/user7210unix/dotfiles/raw/i3-blue/assets/1preview.png" width="100%">
       <p align="center">
         <img src="https://img.shields.io/badge/RAM-~300MB-brightgreen?style=flat-square">
         <img src="https://img.shields.io/badge/Status-Daily Driver-blue?style=flat-square">
